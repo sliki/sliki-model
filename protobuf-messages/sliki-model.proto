@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option java_package = "wiki.sliki.model";
+
 message UserId {
   bytes binary_uuid = 1;
 }
