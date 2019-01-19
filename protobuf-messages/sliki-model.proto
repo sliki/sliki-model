@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+message UserId {
+  bytes binary_uuid = 1;
+}
+
+// note that PB's enum scoping rules require values to be globally unique,
+// hence seemingly redundant prefixes.
+enum UserType {
+  USER_PERSONAL   = 0;
+  USER_ORG_BASED  = 1;
+}
+
+// note that PB's enum scoping rules require values to be globally unique,
+// hence seemingly redundant prefixes.
+enum UserStatus {
+  USER_ACTIVE      = 0;
+  USER_UNVERIFIED  = 1;
+  USER_SUSPENDED   = 2;
+}
+
+message User {
+  UserId user_id                = 1;
+  UserType user_type            = 2;
+  UserStatus status             = 3;
+  int64 created_datetime_ms     = 4;
+  int64 modified_datetime_ms    = 5;
+  string given_name             = 6;
+  string family_name            = 7;
+  string display_name           = 8;
+  PersonaId default_persona_id  = 9;
+
+}
+
+message PersonaId {
+  bytes binary_uuid = 1;
+}
+
+// note that PB's enum scoping rules require values to be globally unique,
+// hence seemingly redundant prefixes.
+enum PersonaType {
+  PERSONA_REGULAR = 0;
+}
+
+// note that PB's enum scoping rules require values to be globally unique,
+// hence seemingly redundant prefixes.
+enum PersonaStatus {
+  PERSONA_ACTIVE = 0;
+}
+
+message Persona {
+  PersonaId persona_id        = 1;
+  PersonaType persona_type    = 2;
+  PersonaStatus status        = 3;
+  int64 created_datetime_ms   = 4;
+  int64 modified_datetime_ms  = 5;
+  string display_name         = 6;
+}
+
+message OrgId {
+  bytes binary_uuid = 1;
+}
+
+// note that PB's enum scoping rules require values to be globally unique,
+// hence seemingly redundant prefixes.
+enum OrgType {
+  ORG_NON_PROFIT_OTHER        = 0;
+  ORG_NON_PROFIT_EDUCATIONAL  = 1;
+  ORG_NON_PROFIT_RELIGIOUS    = 2;
+  ORG_NON_PROFIT_GOVERNMENT   = 3;
+  ORG_FOR_PROFIT_OTHER        = 4;
+  ORG_FOR_PROFIT_SMALL        = 5;
+  ORG_FOR_PROFIT_LARGE        = 6;
+}
+
+// note that PB's enum scoping rules require values to be globally unique,
+// hence seemingly redundant prefixes.
+enum OrgStatus {
+  ORG_ACTIVE = 0;
+}
+
+
+message Org {
+  OrgId Org_id                = 1;
+  OrgType Org_type            = 2;
+  OrgStatus status            = 3;
+  int64 created_datetime_ms   = 4;
+  int64 modified_datetime_ms  = 5;
+  string display_name         = 6;
+}
+
+message MessageId {
+  bytes binary_uuid = 1;
+}
+
+enum MessageType {
+  MSG_SIMPLE  = 0;
+  MSG_THREAD  = 1;
+}
+
+enum MessageStatus {
+  MSG_VISIBLE = 0;
+}
+
+message Message {
+  MessageId message_id         = 1;
+  MessageType message_type     = 2;
+  MessageStatus status         = 3;
+  int64 created_datetime_ms    = 4;
+  int64 modified_datetime_ms   = 5;
+  PersonaId create_persona_id  = 6;
+  OrgId create_org_id          = 7;
+  string message_body          = 8;
+  
+}
+
+message MessageRef {
+  MessageId ref_message_id       = 1;
+  MessageId original_message_id  = 2;
+}
