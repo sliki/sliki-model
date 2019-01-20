@@ -3671,6 +3671,19 @@ public final class SlikiModel {
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
+
+    /**
+     * <code>.UserId user_id = 7;</code>
+     */
+    boolean hasUserId();
+    /**
+     * <code>.UserId user_id = 7;</code>
+     */
+    wiki.sliki.model.SlikiModel.UserId getUserId();
+    /**
+     * <code>.UserId user_id = 7;</code>
+     */
+    wiki.sliki.model.SlikiModel.UserIdOrBuilder getUserIdOrBuilder();
   }
   /**
    * Protobuf type {@code Persona}
@@ -3755,6 +3768,19 @@ public final class SlikiModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               displayName_ = s;
+              break;
+            }
+            case 58: {
+              wiki.sliki.model.SlikiModel.UserId.Builder subBuilder = null;
+              if (userId_ != null) {
+                subBuilder = userId_.toBuilder();
+              }
+              userId_ = input.readMessage(wiki.sliki.model.SlikiModel.UserId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userId_);
+                userId_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -3896,6 +3922,27 @@ public final class SlikiModel {
       }
     }
 
+    public static final int USER_ID_FIELD_NUMBER = 7;
+    private wiki.sliki.model.SlikiModel.UserId userId_;
+    /**
+     * <code>.UserId user_id = 7;</code>
+     */
+    public boolean hasUserId() {
+      return userId_ != null;
+    }
+    /**
+     * <code>.UserId user_id = 7;</code>
+     */
+    public wiki.sliki.model.SlikiModel.UserId getUserId() {
+      return userId_ == null ? wiki.sliki.model.SlikiModel.UserId.getDefaultInstance() : userId_;
+    }
+    /**
+     * <code>.UserId user_id = 7;</code>
+     */
+    public wiki.sliki.model.SlikiModel.UserIdOrBuilder getUserIdOrBuilder() {
+      return getUserId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3927,6 +3974,9 @@ public final class SlikiModel {
       }
       if (!getDisplayNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, displayName_);
+      }
+      if (userId_ != null) {
+        output.writeMessage(7, getUserId());
       }
       unknownFields.writeTo(output);
     }
@@ -3960,6 +4010,10 @@ public final class SlikiModel {
       if (!getDisplayNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, displayName_);
       }
+      if (userId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getUserId());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3989,6 +4043,11 @@ public final class SlikiModel {
           == other.getModifiedDatetimeMs());
       result = result && getDisplayName()
           .equals(other.getDisplayName());
+      result = result && (hasUserId() == other.hasUserId());
+      if (hasUserId()) {
+        result = result && getUserId()
+            .equals(other.getUserId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4016,6 +4075,10 @@ public final class SlikiModel {
           getModifiedDatetimeMs());
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
+      if (hasUserId()) {
+        hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4165,6 +4228,12 @@ public final class SlikiModel {
 
         displayName_ = "";
 
+        if (userIdBuilder_ == null) {
+          userId_ = null;
+        } else {
+          userId_ = null;
+          userIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -4201,6 +4270,11 @@ public final class SlikiModel {
         result.createdDatetimeMs_ = createdDatetimeMs_;
         result.modifiedDatetimeMs_ = modifiedDatetimeMs_;
         result.displayName_ = displayName_;
+        if (userIdBuilder_ == null) {
+          result.userId_ = userId_;
+        } else {
+          result.userId_ = userIdBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -4267,6 +4341,9 @@ public final class SlikiModel {
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
           onChanged();
+        }
+        if (other.hasUserId()) {
+          mergeUserId(other.getUserId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4623,6 +4700,123 @@ public final class SlikiModel {
         displayName_ = value;
         onChanged();
         return this;
+      }
+
+      private wiki.sliki.model.SlikiModel.UserId userId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.UserId, wiki.sliki.model.SlikiModel.UserId.Builder, wiki.sliki.model.SlikiModel.UserIdOrBuilder> userIdBuilder_;
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public boolean hasUserId() {
+        return userIdBuilder_ != null || userId_ != null;
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public wiki.sliki.model.SlikiModel.UserId getUserId() {
+        if (userIdBuilder_ == null) {
+          return userId_ == null ? wiki.sliki.model.SlikiModel.UserId.getDefaultInstance() : userId_;
+        } else {
+          return userIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public Builder setUserId(wiki.sliki.model.SlikiModel.UserId value) {
+        if (userIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userId_ = value;
+          onChanged();
+        } else {
+          userIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public Builder setUserId(
+          wiki.sliki.model.SlikiModel.UserId.Builder builderForValue) {
+        if (userIdBuilder_ == null) {
+          userId_ = builderForValue.build();
+          onChanged();
+        } else {
+          userIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public Builder mergeUserId(wiki.sliki.model.SlikiModel.UserId value) {
+        if (userIdBuilder_ == null) {
+          if (userId_ != null) {
+            userId_ =
+              wiki.sliki.model.SlikiModel.UserId.newBuilder(userId_).mergeFrom(value).buildPartial();
+          } else {
+            userId_ = value;
+          }
+          onChanged();
+        } else {
+          userIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public Builder clearUserId() {
+        if (userIdBuilder_ == null) {
+          userId_ = null;
+          onChanged();
+        } else {
+          userId_ = null;
+          userIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public wiki.sliki.model.SlikiModel.UserId.Builder getUserIdBuilder() {
+        
+        onChanged();
+        return getUserIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      public wiki.sliki.model.SlikiModel.UserIdOrBuilder getUserIdOrBuilder() {
+        if (userIdBuilder_ != null) {
+          return userIdBuilder_.getMessageOrBuilder();
+        } else {
+          return userId_ == null ?
+              wiki.sliki.model.SlikiModel.UserId.getDefaultInstance() : userId_;
+        }
+      }
+      /**
+       * <code>.UserId user_id = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.UserId, wiki.sliki.model.SlikiModel.UserId.Builder, wiki.sliki.model.SlikiModel.UserIdOrBuilder> 
+          getUserIdFieldBuilder() {
+        if (userIdBuilder_ == null) {
+          userIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              wiki.sliki.model.SlikiModel.UserId, wiki.sliki.model.SlikiModel.UserId.Builder, wiki.sliki.model.SlikiModel.UserIdOrBuilder>(
+                  getUserId(),
+                  getParentForChildren(),
+                  isClean());
+          userId_ = null;
+        }
+        return userIdBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8374,17 +8568,17 @@ public final class SlikiModel {
     long getModifiedDatetimeMs();
 
     /**
-     * <code>.PersonaId create_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 6;</code>
      */
-    boolean hasCreatePersonaId();
+    boolean hasCreatedPersonaId();
     /**
-     * <code>.PersonaId create_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 6;</code>
      */
-    wiki.sliki.model.SlikiModel.PersonaId getCreatePersonaId();
+    wiki.sliki.model.SlikiModel.PersonaId getCreatedPersonaId();
     /**
-     * <code>.PersonaId create_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 6;</code>
      */
-    wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatePersonaIdOrBuilder();
+    wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatedPersonaIdOrBuilder();
 
     /**
      * <code>.OrgId create_org_id = 7;</code>
@@ -8490,13 +8684,13 @@ public final class SlikiModel {
             }
             case 50: {
               wiki.sliki.model.SlikiModel.PersonaId.Builder subBuilder = null;
-              if (createPersonaId_ != null) {
-                subBuilder = createPersonaId_.toBuilder();
+              if (createdPersonaId_ != null) {
+                subBuilder = createdPersonaId_.toBuilder();
               }
-              createPersonaId_ = input.readMessage(wiki.sliki.model.SlikiModel.PersonaId.parser(), extensionRegistry);
+              createdPersonaId_ = input.readMessage(wiki.sliki.model.SlikiModel.PersonaId.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(createPersonaId_);
-                createPersonaId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(createdPersonaId_);
+                createdPersonaId_ = subBuilder.buildPartial();
               }
 
               break;
@@ -8625,25 +8819,25 @@ public final class SlikiModel {
       return modifiedDatetimeMs_;
     }
 
-    public static final int CREATE_PERSONA_ID_FIELD_NUMBER = 6;
-    private wiki.sliki.model.SlikiModel.PersonaId createPersonaId_;
+    public static final int CREATED_PERSONA_ID_FIELD_NUMBER = 6;
+    private wiki.sliki.model.SlikiModel.PersonaId createdPersonaId_;
     /**
-     * <code>.PersonaId create_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 6;</code>
      */
-    public boolean hasCreatePersonaId() {
-      return createPersonaId_ != null;
+    public boolean hasCreatedPersonaId() {
+      return createdPersonaId_ != null;
     }
     /**
-     * <code>.PersonaId create_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 6;</code>
      */
-    public wiki.sliki.model.SlikiModel.PersonaId getCreatePersonaId() {
-      return createPersonaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createPersonaId_;
+    public wiki.sliki.model.SlikiModel.PersonaId getCreatedPersonaId() {
+      return createdPersonaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createdPersonaId_;
     }
     /**
-     * <code>.PersonaId create_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 6;</code>
      */
-    public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatePersonaIdOrBuilder() {
-      return getCreatePersonaId();
+    public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatedPersonaIdOrBuilder() {
+      return getCreatedPersonaId();
     }
 
     public static final int CREATE_ORG_ID_FIELD_NUMBER = 7;
@@ -8730,8 +8924,8 @@ public final class SlikiModel {
       if (modifiedDatetimeMs_ != 0L) {
         output.writeInt64(5, modifiedDatetimeMs_);
       }
-      if (createPersonaId_ != null) {
-        output.writeMessage(6, getCreatePersonaId());
+      if (createdPersonaId_ != null) {
+        output.writeMessage(6, getCreatedPersonaId());
       }
       if (createOrgId_ != null) {
         output.writeMessage(7, getCreateOrgId());
@@ -8768,9 +8962,9 @@ public final class SlikiModel {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(5, modifiedDatetimeMs_);
       }
-      if (createPersonaId_ != null) {
+      if (createdPersonaId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getCreatePersonaId());
+          .computeMessageSize(6, getCreatedPersonaId());
       }
       if (createOrgId_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -8806,10 +9000,10 @@ public final class SlikiModel {
           == other.getCreatedDatetimeMs());
       result = result && (getModifiedDatetimeMs()
           == other.getModifiedDatetimeMs());
-      result = result && (hasCreatePersonaId() == other.hasCreatePersonaId());
-      if (hasCreatePersonaId()) {
-        result = result && getCreatePersonaId()
-            .equals(other.getCreatePersonaId());
+      result = result && (hasCreatedPersonaId() == other.hasCreatedPersonaId());
+      if (hasCreatedPersonaId()) {
+        result = result && getCreatedPersonaId()
+            .equals(other.getCreatedPersonaId());
       }
       result = result && (hasCreateOrgId() == other.hasCreateOrgId());
       if (hasCreateOrgId()) {
@@ -8843,9 +9037,9 @@ public final class SlikiModel {
       hash = (37 * hash) + MODIFIED_DATETIME_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getModifiedDatetimeMs());
-      if (hasCreatePersonaId()) {
-        hash = (37 * hash) + CREATE_PERSONA_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getCreatePersonaId().hashCode();
+      if (hasCreatedPersonaId()) {
+        hash = (37 * hash) + CREATED_PERSONA_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getCreatedPersonaId().hashCode();
       }
       if (hasCreateOrgId()) {
         hash = (37 * hash) + CREATE_ORG_ID_FIELD_NUMBER;
@@ -9000,11 +9194,11 @@ public final class SlikiModel {
 
         modifiedDatetimeMs_ = 0L;
 
-        if (createPersonaIdBuilder_ == null) {
-          createPersonaId_ = null;
+        if (createdPersonaIdBuilder_ == null) {
+          createdPersonaId_ = null;
         } else {
-          createPersonaId_ = null;
-          createPersonaIdBuilder_ = null;
+          createdPersonaId_ = null;
+          createdPersonaIdBuilder_ = null;
         }
         if (createOrgIdBuilder_ == null) {
           createOrgId_ = null;
@@ -9049,10 +9243,10 @@ public final class SlikiModel {
         result.status_ = status_;
         result.createdDatetimeMs_ = createdDatetimeMs_;
         result.modifiedDatetimeMs_ = modifiedDatetimeMs_;
-        if (createPersonaIdBuilder_ == null) {
-          result.createPersonaId_ = createPersonaId_;
+        if (createdPersonaIdBuilder_ == null) {
+          result.createdPersonaId_ = createdPersonaId_;
         } else {
-          result.createPersonaId_ = createPersonaIdBuilder_.build();
+          result.createdPersonaId_ = createdPersonaIdBuilder_.build();
         }
         if (createOrgIdBuilder_ == null) {
           result.createOrgId_ = createOrgId_;
@@ -9123,8 +9317,8 @@ public final class SlikiModel {
         if (other.getModifiedDatetimeMs() != 0L) {
           setModifiedDatetimeMs(other.getModifiedDatetimeMs());
         }
-        if (other.hasCreatePersonaId()) {
-          mergeCreatePersonaId(other.getCreatePersonaId());
+        if (other.hasCreatedPersonaId()) {
+          mergeCreatedPersonaId(other.getCreatedPersonaId());
         }
         if (other.hasCreateOrgId()) {
           mergeCreateOrgId(other.getCreateOrgId());
@@ -9421,121 +9615,121 @@ public final class SlikiModel {
         return this;
       }
 
-      private wiki.sliki.model.SlikiModel.PersonaId createPersonaId_ = null;
+      private wiki.sliki.model.SlikiModel.PersonaId createdPersonaId_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> createPersonaIdBuilder_;
+          wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> createdPersonaIdBuilder_;
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public boolean hasCreatePersonaId() {
-        return createPersonaIdBuilder_ != null || createPersonaId_ != null;
+      public boolean hasCreatedPersonaId() {
+        return createdPersonaIdBuilder_ != null || createdPersonaId_ != null;
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public wiki.sliki.model.SlikiModel.PersonaId getCreatePersonaId() {
-        if (createPersonaIdBuilder_ == null) {
-          return createPersonaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createPersonaId_;
+      public wiki.sliki.model.SlikiModel.PersonaId getCreatedPersonaId() {
+        if (createdPersonaIdBuilder_ == null) {
+          return createdPersonaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createdPersonaId_;
         } else {
-          return createPersonaIdBuilder_.getMessage();
+          return createdPersonaIdBuilder_.getMessage();
         }
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public Builder setCreatePersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
-        if (createPersonaIdBuilder_ == null) {
+      public Builder setCreatedPersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
+        if (createdPersonaIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          createPersonaId_ = value;
+          createdPersonaId_ = value;
           onChanged();
         } else {
-          createPersonaIdBuilder_.setMessage(value);
+          createdPersonaIdBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public Builder setCreatePersonaId(
+      public Builder setCreatedPersonaId(
           wiki.sliki.model.SlikiModel.PersonaId.Builder builderForValue) {
-        if (createPersonaIdBuilder_ == null) {
-          createPersonaId_ = builderForValue.build();
+        if (createdPersonaIdBuilder_ == null) {
+          createdPersonaId_ = builderForValue.build();
           onChanged();
         } else {
-          createPersonaIdBuilder_.setMessage(builderForValue.build());
+          createdPersonaIdBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public Builder mergeCreatePersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
-        if (createPersonaIdBuilder_ == null) {
-          if (createPersonaId_ != null) {
-            createPersonaId_ =
-              wiki.sliki.model.SlikiModel.PersonaId.newBuilder(createPersonaId_).mergeFrom(value).buildPartial();
+      public Builder mergeCreatedPersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
+        if (createdPersonaIdBuilder_ == null) {
+          if (createdPersonaId_ != null) {
+            createdPersonaId_ =
+              wiki.sliki.model.SlikiModel.PersonaId.newBuilder(createdPersonaId_).mergeFrom(value).buildPartial();
           } else {
-            createPersonaId_ = value;
+            createdPersonaId_ = value;
           }
           onChanged();
         } else {
-          createPersonaIdBuilder_.mergeFrom(value);
+          createdPersonaIdBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public Builder clearCreatePersonaId() {
-        if (createPersonaIdBuilder_ == null) {
-          createPersonaId_ = null;
+      public Builder clearCreatedPersonaId() {
+        if (createdPersonaIdBuilder_ == null) {
+          createdPersonaId_ = null;
           onChanged();
         } else {
-          createPersonaId_ = null;
-          createPersonaIdBuilder_ = null;
+          createdPersonaId_ = null;
+          createdPersonaIdBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public wiki.sliki.model.SlikiModel.PersonaId.Builder getCreatePersonaIdBuilder() {
+      public wiki.sliki.model.SlikiModel.PersonaId.Builder getCreatedPersonaIdBuilder() {
         
         onChanged();
-        return getCreatePersonaIdFieldBuilder().getBuilder();
+        return getCreatedPersonaIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
-      public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatePersonaIdOrBuilder() {
-        if (createPersonaIdBuilder_ != null) {
-          return createPersonaIdBuilder_.getMessageOrBuilder();
+      public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatedPersonaIdOrBuilder() {
+        if (createdPersonaIdBuilder_ != null) {
+          return createdPersonaIdBuilder_.getMessageOrBuilder();
         } else {
-          return createPersonaId_ == null ?
-              wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createPersonaId_;
+          return createdPersonaId_ == null ?
+              wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createdPersonaId_;
         }
       }
       /**
-       * <code>.PersonaId create_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> 
-          getCreatePersonaIdFieldBuilder() {
-        if (createPersonaIdBuilder_ == null) {
-          createPersonaIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getCreatedPersonaIdFieldBuilder() {
+        if (createdPersonaIdBuilder_ == null) {
+          createdPersonaIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder>(
-                  getCreatePersonaId(),
+                  getCreatedPersonaId(),
                   getParentForChildren(),
                   isClean());
-          createPersonaId_ = null;
+          createdPersonaId_ = null;
         }
-        return createPersonaIdBuilder_;
+        return createdPersonaIdBuilder_;
       }
 
       private wiki.sliki.model.SlikiModel.OrgId createOrgId_ = null;
@@ -10577,6 +10771,4523 @@ public final class SlikiModel {
 
   }
 
+  public interface AuthOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Auth)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.UserId user_id = 1;</code>
+     */
+    boolean hasUserId();
+    /**
+     * <code>.UserId user_id = 1;</code>
+     */
+    wiki.sliki.model.SlikiModel.UserId getUserId();
+    /**
+     * <code>.UserId user_id = 1;</code>
+     */
+    wiki.sliki.model.SlikiModel.UserIdOrBuilder getUserIdOrBuilder();
+
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    java.util.List<wiki.sliki.model.SlikiModel.Auth.PersonaRef> 
+        getPersonasList();
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    wiki.sliki.model.SlikiModel.Auth.PersonaRef getPersonas(int index);
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    int getPersonasCount();
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    java.util.List<? extends wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder> 
+        getPersonasOrBuilderList();
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder getPersonasOrBuilder(
+        int index);
+
+    /**
+     * <code>int64 created_datetime_ms = 3;</code>
+     */
+    long getCreatedDatetimeMs();
+
+    /**
+     * <code>int64 modified_datetime_ms = 4;</code>
+     */
+    long getModifiedDatetimeMs();
+
+    /**
+     * <pre>
+     * note that login does not count as a modification
+     * </pre>
+     *
+     * <code>int64 login_datetime_ms = 6;</code>
+     */
+    long getLoginDatetimeMs();
+
+    /**
+     * <code>bytes login_ip_address = 7;</code>
+     */
+    com.google.protobuf.ByteString getLoginIpAddress();
+  }
+  /**
+   * Protobuf type {@code Auth}
+   */
+  public  static final class Auth extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Auth)
+      AuthOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Auth.newBuilder() to construct.
+    private Auth(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Auth() {
+      personas_ = java.util.Collections.emptyList();
+      createdDatetimeMs_ = 0L;
+      modifiedDatetimeMs_ = 0L;
+      loginDatetimeMs_ = 0L;
+      loginIpAddress_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Auth(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              wiki.sliki.model.SlikiModel.UserId.Builder subBuilder = null;
+              if (userId_ != null) {
+                subBuilder = userId_.toBuilder();
+              }
+              userId_ = input.readMessage(wiki.sliki.model.SlikiModel.UserId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userId_);
+                userId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                personas_ = new java.util.ArrayList<wiki.sliki.model.SlikiModel.Auth.PersonaRef>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              personas_.add(
+                  input.readMessage(wiki.sliki.model.SlikiModel.Auth.PersonaRef.parser(), extensionRegistry));
+              break;
+            }
+            case 24: {
+
+              createdDatetimeMs_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              modifiedDatetimeMs_ = input.readInt64();
+              break;
+            }
+            case 48: {
+
+              loginDatetimeMs_ = input.readInt64();
+              break;
+            }
+            case 58: {
+
+              loginIpAddress_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          personas_ = java.util.Collections.unmodifiableList(personas_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.internal_static_Auth_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return wiki.sliki.model.SlikiModel.internal_static_Auth_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              wiki.sliki.model.SlikiModel.Auth.class, wiki.sliki.model.SlikiModel.Auth.Builder.class);
+    }
+
+    public interface PersonaRefOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:Auth.PersonaRef)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>string ext_name = 1;</code>
+       */
+      java.lang.String getExtName();
+      /**
+       * <code>string ext_name = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getExtNameBytes();
+
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      boolean hasPersonaId();
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      wiki.sliki.model.SlikiModel.PersonaId getPersonaId();
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getPersonaIdOrBuilder();
+
+      /**
+       * <code>int64 created_datetime_ms = 3;</code>
+       */
+      long getCreatedDatetimeMs();
+
+      /**
+       * <code>int64 modified_datetime_ms = 4;</code>
+       */
+      long getModifiedDatetimeMs();
+
+      /**
+       * <pre>
+       * note that login does not count as a modification
+       * </pre>
+       *
+       * <code>int64 login_datetime_ms = 5;</code>
+       */
+      long getLoginDatetimeMs();
+    }
+    /**
+     * Protobuf type {@code Auth.PersonaRef}
+     */
+    public  static final class PersonaRef extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:Auth.PersonaRef)
+        PersonaRefOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use PersonaRef.newBuilder() to construct.
+      private PersonaRef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private PersonaRef() {
+        extName_ = "";
+        createdDatetimeMs_ = 0L;
+        modifiedDatetimeMs_ = 0L;
+        loginDatetimeMs_ = 0L;
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private PersonaRef(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                extName_ = s;
+                break;
+              }
+              case 18: {
+                wiki.sliki.model.SlikiModel.PersonaId.Builder subBuilder = null;
+                if (personaId_ != null) {
+                  subBuilder = personaId_.toBuilder();
+                }
+                personaId_ = input.readMessage(wiki.sliki.model.SlikiModel.PersonaId.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(personaId_);
+                  personaId_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 24: {
+
+                createdDatetimeMs_ = input.readInt64();
+                break;
+              }
+              case 32: {
+
+                modifiedDatetimeMs_ = input.readInt64();
+                break;
+              }
+              case 40: {
+
+                loginDatetimeMs_ = input.readInt64();
+                break;
+              }
+              default: {
+                if (!parseUnknownFieldProto3(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return wiki.sliki.model.SlikiModel.internal_static_Auth_PersonaRef_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return wiki.sliki.model.SlikiModel.internal_static_Auth_PersonaRef_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                wiki.sliki.model.SlikiModel.Auth.PersonaRef.class, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder.class);
+      }
+
+      public static final int EXT_NAME_FIELD_NUMBER = 1;
+      private volatile java.lang.Object extName_;
+      /**
+       * <code>string ext_name = 1;</code>
+       */
+      public java.lang.String getExtName() {
+        java.lang.Object ref = extName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extName_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string ext_name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtNameBytes() {
+        java.lang.Object ref = extName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int PERSONA_ID_FIELD_NUMBER = 2;
+      private wiki.sliki.model.SlikiModel.PersonaId personaId_;
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public boolean hasPersonaId() {
+        return personaId_ != null;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.PersonaId getPersonaId() {
+        return personaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : personaId_;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getPersonaIdOrBuilder() {
+        return getPersonaId();
+      }
+
+      public static final int CREATED_DATETIME_MS_FIELD_NUMBER = 3;
+      private long createdDatetimeMs_;
+      /**
+       * <code>int64 created_datetime_ms = 3;</code>
+       */
+      public long getCreatedDatetimeMs() {
+        return createdDatetimeMs_;
+      }
+
+      public static final int MODIFIED_DATETIME_MS_FIELD_NUMBER = 4;
+      private long modifiedDatetimeMs_;
+      /**
+       * <code>int64 modified_datetime_ms = 4;</code>
+       */
+      public long getModifiedDatetimeMs() {
+        return modifiedDatetimeMs_;
+      }
+
+      public static final int LOGIN_DATETIME_MS_FIELD_NUMBER = 5;
+      private long loginDatetimeMs_;
+      /**
+       * <pre>
+       * note that login does not count as a modification
+       * </pre>
+       *
+       * <code>int64 login_datetime_ms = 5;</code>
+       */
+      public long getLoginDatetimeMs() {
+        return loginDatetimeMs_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!getExtNameBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, extName_);
+        }
+        if (personaId_ != null) {
+          output.writeMessage(2, getPersonaId());
+        }
+        if (createdDatetimeMs_ != 0L) {
+          output.writeInt64(3, createdDatetimeMs_);
+        }
+        if (modifiedDatetimeMs_ != 0L) {
+          output.writeInt64(4, modifiedDatetimeMs_);
+        }
+        if (loginDatetimeMs_ != 0L) {
+          output.writeInt64(5, loginDatetimeMs_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!getExtNameBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, extName_);
+        }
+        if (personaId_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, getPersonaId());
+        }
+        if (createdDatetimeMs_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(3, createdDatetimeMs_);
+        }
+        if (modifiedDatetimeMs_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(4, modifiedDatetimeMs_);
+        }
+        if (loginDatetimeMs_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(5, loginDatetimeMs_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof wiki.sliki.model.SlikiModel.Auth.PersonaRef)) {
+          return super.equals(obj);
+        }
+        wiki.sliki.model.SlikiModel.Auth.PersonaRef other = (wiki.sliki.model.SlikiModel.Auth.PersonaRef) obj;
+
+        boolean result = true;
+        result = result && getExtName()
+            .equals(other.getExtName());
+        result = result && (hasPersonaId() == other.hasPersonaId());
+        if (hasPersonaId()) {
+          result = result && getPersonaId()
+              .equals(other.getPersonaId());
+        }
+        result = result && (getCreatedDatetimeMs()
+            == other.getCreatedDatetimeMs());
+        result = result && (getModifiedDatetimeMs()
+            == other.getModifiedDatetimeMs());
+        result = result && (getLoginDatetimeMs()
+            == other.getLoginDatetimeMs());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + EXT_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getExtName().hashCode();
+        if (hasPersonaId()) {
+          hash = (37 * hash) + PERSONA_ID_FIELD_NUMBER;
+          hash = (53 * hash) + getPersonaId().hashCode();
+        }
+        hash = (37 * hash) + CREATED_DATETIME_MS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCreatedDatetimeMs());
+        hash = (37 * hash) + MODIFIED_DATETIME_MS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getModifiedDatetimeMs());
+        hash = (37 * hash) + LOGIN_DATETIME_MS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLoginDatetimeMs());
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(wiki.sliki.model.SlikiModel.Auth.PersonaRef prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code Auth.PersonaRef}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:Auth.PersonaRef)
+          wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return wiki.sliki.model.SlikiModel.internal_static_Auth_PersonaRef_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return wiki.sliki.model.SlikiModel.internal_static_Auth_PersonaRef_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  wiki.sliki.model.SlikiModel.Auth.PersonaRef.class, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder.class);
+        }
+
+        // Construct using wiki.sliki.model.SlikiModel.Auth.PersonaRef.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          extName_ = "";
+
+          if (personaIdBuilder_ == null) {
+            personaId_ = null;
+          } else {
+            personaId_ = null;
+            personaIdBuilder_ = null;
+          }
+          createdDatetimeMs_ = 0L;
+
+          modifiedDatetimeMs_ = 0L;
+
+          loginDatetimeMs_ = 0L;
+
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return wiki.sliki.model.SlikiModel.internal_static_Auth_PersonaRef_descriptor;
+        }
+
+        @java.lang.Override
+        public wiki.sliki.model.SlikiModel.Auth.PersonaRef getDefaultInstanceForType() {
+          return wiki.sliki.model.SlikiModel.Auth.PersonaRef.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public wiki.sliki.model.SlikiModel.Auth.PersonaRef build() {
+          wiki.sliki.model.SlikiModel.Auth.PersonaRef result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public wiki.sliki.model.SlikiModel.Auth.PersonaRef buildPartial() {
+          wiki.sliki.model.SlikiModel.Auth.PersonaRef result = new wiki.sliki.model.SlikiModel.Auth.PersonaRef(this);
+          result.extName_ = extName_;
+          if (personaIdBuilder_ == null) {
+            result.personaId_ = personaId_;
+          } else {
+            result.personaId_ = personaIdBuilder_.build();
+          }
+          result.createdDatetimeMs_ = createdDatetimeMs_;
+          result.modifiedDatetimeMs_ = modifiedDatetimeMs_;
+          result.loginDatetimeMs_ = loginDatetimeMs_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof wiki.sliki.model.SlikiModel.Auth.PersonaRef) {
+            return mergeFrom((wiki.sliki.model.SlikiModel.Auth.PersonaRef)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(wiki.sliki.model.SlikiModel.Auth.PersonaRef other) {
+          if (other == wiki.sliki.model.SlikiModel.Auth.PersonaRef.getDefaultInstance()) return this;
+          if (!other.getExtName().isEmpty()) {
+            extName_ = other.extName_;
+            onChanged();
+          }
+          if (other.hasPersonaId()) {
+            mergePersonaId(other.getPersonaId());
+          }
+          if (other.getCreatedDatetimeMs() != 0L) {
+            setCreatedDatetimeMs(other.getCreatedDatetimeMs());
+          }
+          if (other.getModifiedDatetimeMs() != 0L) {
+            setModifiedDatetimeMs(other.getModifiedDatetimeMs());
+          }
+          if (other.getLoginDatetimeMs() != 0L) {
+            setLoginDatetimeMs(other.getLoginDatetimeMs());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          wiki.sliki.model.SlikiModel.Auth.PersonaRef parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (wiki.sliki.model.SlikiModel.Auth.PersonaRef) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private java.lang.Object extName_ = "";
+        /**
+         * <code>string ext_name = 1;</code>
+         */
+        public java.lang.String getExtName() {
+          java.lang.Object ref = extName_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            extName_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string ext_name = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getExtNameBytes() {
+          java.lang.Object ref = extName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            extName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string ext_name = 1;</code>
+         */
+        public Builder setExtName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          extName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string ext_name = 1;</code>
+         */
+        public Builder clearExtName() {
+          
+          extName_ = getDefaultInstance().getExtName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string ext_name = 1;</code>
+         */
+        public Builder setExtNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          extName_ = value;
+          onChanged();
+          return this;
+        }
+
+        private wiki.sliki.model.SlikiModel.PersonaId personaId_ = null;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> personaIdBuilder_;
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public boolean hasPersonaId() {
+          return personaIdBuilder_ != null || personaId_ != null;
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public wiki.sliki.model.SlikiModel.PersonaId getPersonaId() {
+          if (personaIdBuilder_ == null) {
+            return personaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : personaId_;
+          } else {
+            return personaIdBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public Builder setPersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
+          if (personaIdBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            personaId_ = value;
+            onChanged();
+          } else {
+            personaIdBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public Builder setPersonaId(
+            wiki.sliki.model.SlikiModel.PersonaId.Builder builderForValue) {
+          if (personaIdBuilder_ == null) {
+            personaId_ = builderForValue.build();
+            onChanged();
+          } else {
+            personaIdBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public Builder mergePersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
+          if (personaIdBuilder_ == null) {
+            if (personaId_ != null) {
+              personaId_ =
+                wiki.sliki.model.SlikiModel.PersonaId.newBuilder(personaId_).mergeFrom(value).buildPartial();
+            } else {
+              personaId_ = value;
+            }
+            onChanged();
+          } else {
+            personaIdBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public Builder clearPersonaId() {
+          if (personaIdBuilder_ == null) {
+            personaId_ = null;
+            onChanged();
+          } else {
+            personaId_ = null;
+            personaIdBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public wiki.sliki.model.SlikiModel.PersonaId.Builder getPersonaIdBuilder() {
+          
+          onChanged();
+          return getPersonaIdFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getPersonaIdOrBuilder() {
+          if (personaIdBuilder_ != null) {
+            return personaIdBuilder_.getMessageOrBuilder();
+          } else {
+            return personaId_ == null ?
+                wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : personaId_;
+          }
+        }
+        /**
+         * <code>.PersonaId persona_id = 2;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> 
+            getPersonaIdFieldBuilder() {
+          if (personaIdBuilder_ == null) {
+            personaIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder>(
+                    getPersonaId(),
+                    getParentForChildren(),
+                    isClean());
+            personaId_ = null;
+          }
+          return personaIdBuilder_;
+        }
+
+        private long createdDatetimeMs_ ;
+        /**
+         * <code>int64 created_datetime_ms = 3;</code>
+         */
+        public long getCreatedDatetimeMs() {
+          return createdDatetimeMs_;
+        }
+        /**
+         * <code>int64 created_datetime_ms = 3;</code>
+         */
+        public Builder setCreatedDatetimeMs(long value) {
+          
+          createdDatetimeMs_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int64 created_datetime_ms = 3;</code>
+         */
+        public Builder clearCreatedDatetimeMs() {
+          
+          createdDatetimeMs_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private long modifiedDatetimeMs_ ;
+        /**
+         * <code>int64 modified_datetime_ms = 4;</code>
+         */
+        public long getModifiedDatetimeMs() {
+          return modifiedDatetimeMs_;
+        }
+        /**
+         * <code>int64 modified_datetime_ms = 4;</code>
+         */
+        public Builder setModifiedDatetimeMs(long value) {
+          
+          modifiedDatetimeMs_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int64 modified_datetime_ms = 4;</code>
+         */
+        public Builder clearModifiedDatetimeMs() {
+          
+          modifiedDatetimeMs_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private long loginDatetimeMs_ ;
+        /**
+         * <pre>
+         * note that login does not count as a modification
+         * </pre>
+         *
+         * <code>int64 login_datetime_ms = 5;</code>
+         */
+        public long getLoginDatetimeMs() {
+          return loginDatetimeMs_;
+        }
+        /**
+         * <pre>
+         * note that login does not count as a modification
+         * </pre>
+         *
+         * <code>int64 login_datetime_ms = 5;</code>
+         */
+        public Builder setLoginDatetimeMs(long value) {
+          
+          loginDatetimeMs_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * note that login does not count as a modification
+         * </pre>
+         *
+         * <code>int64 login_datetime_ms = 5;</code>
+         */
+        public Builder clearLoginDatetimeMs() {
+          
+          loginDatetimeMs_ = 0L;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFieldsProto3(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:Auth.PersonaRef)
+      }
+
+      // @@protoc_insertion_point(class_scope:Auth.PersonaRef)
+      private static final wiki.sliki.model.SlikiModel.Auth.PersonaRef DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new wiki.sliki.model.SlikiModel.Auth.PersonaRef();
+      }
+
+      public static wiki.sliki.model.SlikiModel.Auth.PersonaRef getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<PersonaRef>
+          PARSER = new com.google.protobuf.AbstractParser<PersonaRef>() {
+        @java.lang.Override
+        public PersonaRef parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new PersonaRef(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<PersonaRef> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<PersonaRef> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Auth.PersonaRef getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    private int bitField0_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private wiki.sliki.model.SlikiModel.UserId userId_;
+    /**
+     * <code>.UserId user_id = 1;</code>
+     */
+    public boolean hasUserId() {
+      return userId_ != null;
+    }
+    /**
+     * <code>.UserId user_id = 1;</code>
+     */
+    public wiki.sliki.model.SlikiModel.UserId getUserId() {
+      return userId_ == null ? wiki.sliki.model.SlikiModel.UserId.getDefaultInstance() : userId_;
+    }
+    /**
+     * <code>.UserId user_id = 1;</code>
+     */
+    public wiki.sliki.model.SlikiModel.UserIdOrBuilder getUserIdOrBuilder() {
+      return getUserId();
+    }
+
+    public static final int PERSONAS_FIELD_NUMBER = 2;
+    private java.util.List<wiki.sliki.model.SlikiModel.Auth.PersonaRef> personas_;
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    public java.util.List<wiki.sliki.model.SlikiModel.Auth.PersonaRef> getPersonasList() {
+      return personas_;
+    }
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    public java.util.List<? extends wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder> 
+        getPersonasOrBuilderList() {
+      return personas_;
+    }
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    public int getPersonasCount() {
+      return personas_.size();
+    }
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    public wiki.sliki.model.SlikiModel.Auth.PersonaRef getPersonas(int index) {
+      return personas_.get(index);
+    }
+    /**
+     * <code>repeated .Auth.PersonaRef personas = 2;</code>
+     */
+    public wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder getPersonasOrBuilder(
+        int index) {
+      return personas_.get(index);
+    }
+
+    public static final int CREATED_DATETIME_MS_FIELD_NUMBER = 3;
+    private long createdDatetimeMs_;
+    /**
+     * <code>int64 created_datetime_ms = 3;</code>
+     */
+    public long getCreatedDatetimeMs() {
+      return createdDatetimeMs_;
+    }
+
+    public static final int MODIFIED_DATETIME_MS_FIELD_NUMBER = 4;
+    private long modifiedDatetimeMs_;
+    /**
+     * <code>int64 modified_datetime_ms = 4;</code>
+     */
+    public long getModifiedDatetimeMs() {
+      return modifiedDatetimeMs_;
+    }
+
+    public static final int LOGIN_DATETIME_MS_FIELD_NUMBER = 6;
+    private long loginDatetimeMs_;
+    /**
+     * <pre>
+     * note that login does not count as a modification
+     * </pre>
+     *
+     * <code>int64 login_datetime_ms = 6;</code>
+     */
+    public long getLoginDatetimeMs() {
+      return loginDatetimeMs_;
+    }
+
+    public static final int LOGIN_IP_ADDRESS_FIELD_NUMBER = 7;
+    private com.google.protobuf.ByteString loginIpAddress_;
+    /**
+     * <code>bytes login_ip_address = 7;</code>
+     */
+    public com.google.protobuf.ByteString getLoginIpAddress() {
+      return loginIpAddress_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userId_ != null) {
+        output.writeMessage(1, getUserId());
+      }
+      for (int i = 0; i < personas_.size(); i++) {
+        output.writeMessage(2, personas_.get(i));
+      }
+      if (createdDatetimeMs_ != 0L) {
+        output.writeInt64(3, createdDatetimeMs_);
+      }
+      if (modifiedDatetimeMs_ != 0L) {
+        output.writeInt64(4, modifiedDatetimeMs_);
+      }
+      if (loginDatetimeMs_ != 0L) {
+        output.writeInt64(6, loginDatetimeMs_);
+      }
+      if (!loginIpAddress_.isEmpty()) {
+        output.writeBytes(7, loginIpAddress_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getUserId());
+      }
+      for (int i = 0; i < personas_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, personas_.get(i));
+      }
+      if (createdDatetimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, createdDatetimeMs_);
+      }
+      if (modifiedDatetimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, modifiedDatetimeMs_);
+      }
+      if (loginDatetimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, loginDatetimeMs_);
+      }
+      if (!loginIpAddress_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, loginIpAddress_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof wiki.sliki.model.SlikiModel.Auth)) {
+        return super.equals(obj);
+      }
+      wiki.sliki.model.SlikiModel.Auth other = (wiki.sliki.model.SlikiModel.Auth) obj;
+
+      boolean result = true;
+      result = result && (hasUserId() == other.hasUserId());
+      if (hasUserId()) {
+        result = result && getUserId()
+            .equals(other.getUserId());
+      }
+      result = result && getPersonasList()
+          .equals(other.getPersonasList());
+      result = result && (getCreatedDatetimeMs()
+          == other.getCreatedDatetimeMs());
+      result = result && (getModifiedDatetimeMs()
+          == other.getModifiedDatetimeMs());
+      result = result && (getLoginDatetimeMs()
+          == other.getLoginDatetimeMs());
+      result = result && getLoginIpAddress()
+          .equals(other.getLoginIpAddress());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserId()) {
+        hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId().hashCode();
+      }
+      if (getPersonasCount() > 0) {
+        hash = (37 * hash) + PERSONAS_FIELD_NUMBER;
+        hash = (53 * hash) + getPersonasList().hashCode();
+      }
+      hash = (37 * hash) + CREATED_DATETIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreatedDatetimeMs());
+      hash = (37 * hash) + MODIFIED_DATETIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getModifiedDatetimeMs());
+      hash = (37 * hash) + LOGIN_DATETIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLoginDatetimeMs());
+      hash = (37 * hash) + LOGIN_IP_ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getLoginIpAddress().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.Auth parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(wiki.sliki.model.SlikiModel.Auth prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Auth}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Auth)
+        wiki.sliki.model.SlikiModel.AuthOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return wiki.sliki.model.SlikiModel.internal_static_Auth_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return wiki.sliki.model.SlikiModel.internal_static_Auth_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                wiki.sliki.model.SlikiModel.Auth.class, wiki.sliki.model.SlikiModel.Auth.Builder.class);
+      }
+
+      // Construct using wiki.sliki.model.SlikiModel.Auth.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPersonasFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (userIdBuilder_ == null) {
+          userId_ = null;
+        } else {
+          userId_ = null;
+          userIdBuilder_ = null;
+        }
+        if (personasBuilder_ == null) {
+          personas_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          personasBuilder_.clear();
+        }
+        createdDatetimeMs_ = 0L;
+
+        modifiedDatetimeMs_ = 0L;
+
+        loginDatetimeMs_ = 0L;
+
+        loginIpAddress_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return wiki.sliki.model.SlikiModel.internal_static_Auth_descriptor;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Auth getDefaultInstanceForType() {
+        return wiki.sliki.model.SlikiModel.Auth.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Auth build() {
+        wiki.sliki.model.SlikiModel.Auth result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Auth buildPartial() {
+        wiki.sliki.model.SlikiModel.Auth result = new wiki.sliki.model.SlikiModel.Auth(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (userIdBuilder_ == null) {
+          result.userId_ = userId_;
+        } else {
+          result.userId_ = userIdBuilder_.build();
+        }
+        if (personasBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            personas_ = java.util.Collections.unmodifiableList(personas_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.personas_ = personas_;
+        } else {
+          result.personas_ = personasBuilder_.build();
+        }
+        result.createdDatetimeMs_ = createdDatetimeMs_;
+        result.modifiedDatetimeMs_ = modifiedDatetimeMs_;
+        result.loginDatetimeMs_ = loginDatetimeMs_;
+        result.loginIpAddress_ = loginIpAddress_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof wiki.sliki.model.SlikiModel.Auth) {
+          return mergeFrom((wiki.sliki.model.SlikiModel.Auth)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(wiki.sliki.model.SlikiModel.Auth other) {
+        if (other == wiki.sliki.model.SlikiModel.Auth.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          mergeUserId(other.getUserId());
+        }
+        if (personasBuilder_ == null) {
+          if (!other.personas_.isEmpty()) {
+            if (personas_.isEmpty()) {
+              personas_ = other.personas_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensurePersonasIsMutable();
+              personas_.addAll(other.personas_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.personas_.isEmpty()) {
+            if (personasBuilder_.isEmpty()) {
+              personasBuilder_.dispose();
+              personasBuilder_ = null;
+              personas_ = other.personas_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              personasBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPersonasFieldBuilder() : null;
+            } else {
+              personasBuilder_.addAllMessages(other.personas_);
+            }
+          }
+        }
+        if (other.getCreatedDatetimeMs() != 0L) {
+          setCreatedDatetimeMs(other.getCreatedDatetimeMs());
+        }
+        if (other.getModifiedDatetimeMs() != 0L) {
+          setModifiedDatetimeMs(other.getModifiedDatetimeMs());
+        }
+        if (other.getLoginDatetimeMs() != 0L) {
+          setLoginDatetimeMs(other.getLoginDatetimeMs());
+        }
+        if (other.getLoginIpAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setLoginIpAddress(other.getLoginIpAddress());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        wiki.sliki.model.SlikiModel.Auth parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (wiki.sliki.model.SlikiModel.Auth) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private wiki.sliki.model.SlikiModel.UserId userId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.UserId, wiki.sliki.model.SlikiModel.UserId.Builder, wiki.sliki.model.SlikiModel.UserIdOrBuilder> userIdBuilder_;
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public boolean hasUserId() {
+        return userIdBuilder_ != null || userId_ != null;
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public wiki.sliki.model.SlikiModel.UserId getUserId() {
+        if (userIdBuilder_ == null) {
+          return userId_ == null ? wiki.sliki.model.SlikiModel.UserId.getDefaultInstance() : userId_;
+        } else {
+          return userIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public Builder setUserId(wiki.sliki.model.SlikiModel.UserId value) {
+        if (userIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userId_ = value;
+          onChanged();
+        } else {
+          userIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public Builder setUserId(
+          wiki.sliki.model.SlikiModel.UserId.Builder builderForValue) {
+        if (userIdBuilder_ == null) {
+          userId_ = builderForValue.build();
+          onChanged();
+        } else {
+          userIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public Builder mergeUserId(wiki.sliki.model.SlikiModel.UserId value) {
+        if (userIdBuilder_ == null) {
+          if (userId_ != null) {
+            userId_ =
+              wiki.sliki.model.SlikiModel.UserId.newBuilder(userId_).mergeFrom(value).buildPartial();
+          } else {
+            userId_ = value;
+          }
+          onChanged();
+        } else {
+          userIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public Builder clearUserId() {
+        if (userIdBuilder_ == null) {
+          userId_ = null;
+          onChanged();
+        } else {
+          userId_ = null;
+          userIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public wiki.sliki.model.SlikiModel.UserId.Builder getUserIdBuilder() {
+        
+        onChanged();
+        return getUserIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      public wiki.sliki.model.SlikiModel.UserIdOrBuilder getUserIdOrBuilder() {
+        if (userIdBuilder_ != null) {
+          return userIdBuilder_.getMessageOrBuilder();
+        } else {
+          return userId_ == null ?
+              wiki.sliki.model.SlikiModel.UserId.getDefaultInstance() : userId_;
+        }
+      }
+      /**
+       * <code>.UserId user_id = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.UserId, wiki.sliki.model.SlikiModel.UserId.Builder, wiki.sliki.model.SlikiModel.UserIdOrBuilder> 
+          getUserIdFieldBuilder() {
+        if (userIdBuilder_ == null) {
+          userIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              wiki.sliki.model.SlikiModel.UserId, wiki.sliki.model.SlikiModel.UserId.Builder, wiki.sliki.model.SlikiModel.UserIdOrBuilder>(
+                  getUserId(),
+                  getParentForChildren(),
+                  isClean());
+          userId_ = null;
+        }
+        return userIdBuilder_;
+      }
+
+      private java.util.List<wiki.sliki.model.SlikiModel.Auth.PersonaRef> personas_ =
+        java.util.Collections.emptyList();
+      private void ensurePersonasIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          personas_ = new java.util.ArrayList<wiki.sliki.model.SlikiModel.Auth.PersonaRef>(personas_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.Auth.PersonaRef, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder, wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder> personasBuilder_;
+
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public java.util.List<wiki.sliki.model.SlikiModel.Auth.PersonaRef> getPersonasList() {
+        if (personasBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(personas_);
+        } else {
+          return personasBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public int getPersonasCount() {
+        if (personasBuilder_ == null) {
+          return personas_.size();
+        } else {
+          return personasBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth.PersonaRef getPersonas(int index) {
+        if (personasBuilder_ == null) {
+          return personas_.get(index);
+        } else {
+          return personasBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder setPersonas(
+          int index, wiki.sliki.model.SlikiModel.Auth.PersonaRef value) {
+        if (personasBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePersonasIsMutable();
+          personas_.set(index, value);
+          onChanged();
+        } else {
+          personasBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder setPersonas(
+          int index, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder builderForValue) {
+        if (personasBuilder_ == null) {
+          ensurePersonasIsMutable();
+          personas_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          personasBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder addPersonas(wiki.sliki.model.SlikiModel.Auth.PersonaRef value) {
+        if (personasBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePersonasIsMutable();
+          personas_.add(value);
+          onChanged();
+        } else {
+          personasBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder addPersonas(
+          int index, wiki.sliki.model.SlikiModel.Auth.PersonaRef value) {
+        if (personasBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePersonasIsMutable();
+          personas_.add(index, value);
+          onChanged();
+        } else {
+          personasBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder addPersonas(
+          wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder builderForValue) {
+        if (personasBuilder_ == null) {
+          ensurePersonasIsMutable();
+          personas_.add(builderForValue.build());
+          onChanged();
+        } else {
+          personasBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder addPersonas(
+          int index, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder builderForValue) {
+        if (personasBuilder_ == null) {
+          ensurePersonasIsMutable();
+          personas_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          personasBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder addAllPersonas(
+          java.lang.Iterable<? extends wiki.sliki.model.SlikiModel.Auth.PersonaRef> values) {
+        if (personasBuilder_ == null) {
+          ensurePersonasIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, personas_);
+          onChanged();
+        } else {
+          personasBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder clearPersonas() {
+        if (personasBuilder_ == null) {
+          personas_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          personasBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public Builder removePersonas(int index) {
+        if (personasBuilder_ == null) {
+          ensurePersonasIsMutable();
+          personas_.remove(index);
+          onChanged();
+        } else {
+          personasBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder getPersonasBuilder(
+          int index) {
+        return getPersonasFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder getPersonasOrBuilder(
+          int index) {
+        if (personasBuilder_ == null) {
+          return personas_.get(index);  } else {
+          return personasBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public java.util.List<? extends wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder> 
+           getPersonasOrBuilderList() {
+        if (personasBuilder_ != null) {
+          return personasBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(personas_);
+        }
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder addPersonasBuilder() {
+        return getPersonasFieldBuilder().addBuilder(
+            wiki.sliki.model.SlikiModel.Auth.PersonaRef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder addPersonasBuilder(
+          int index) {
+        return getPersonasFieldBuilder().addBuilder(
+            index, wiki.sliki.model.SlikiModel.Auth.PersonaRef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Auth.PersonaRef personas = 2;</code>
+       */
+      public java.util.List<wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder> 
+           getPersonasBuilderList() {
+        return getPersonasFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.Auth.PersonaRef, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder, wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder> 
+          getPersonasFieldBuilder() {
+        if (personasBuilder_ == null) {
+          personasBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              wiki.sliki.model.SlikiModel.Auth.PersonaRef, wiki.sliki.model.SlikiModel.Auth.PersonaRef.Builder, wiki.sliki.model.SlikiModel.Auth.PersonaRefOrBuilder>(
+                  personas_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          personas_ = null;
+        }
+        return personasBuilder_;
+      }
+
+      private long createdDatetimeMs_ ;
+      /**
+       * <code>int64 created_datetime_ms = 3;</code>
+       */
+      public long getCreatedDatetimeMs() {
+        return createdDatetimeMs_;
+      }
+      /**
+       * <code>int64 created_datetime_ms = 3;</code>
+       */
+      public Builder setCreatedDatetimeMs(long value) {
+        
+        createdDatetimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 created_datetime_ms = 3;</code>
+       */
+      public Builder clearCreatedDatetimeMs() {
+        
+        createdDatetimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long modifiedDatetimeMs_ ;
+      /**
+       * <code>int64 modified_datetime_ms = 4;</code>
+       */
+      public long getModifiedDatetimeMs() {
+        return modifiedDatetimeMs_;
+      }
+      /**
+       * <code>int64 modified_datetime_ms = 4;</code>
+       */
+      public Builder setModifiedDatetimeMs(long value) {
+        
+        modifiedDatetimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 modified_datetime_ms = 4;</code>
+       */
+      public Builder clearModifiedDatetimeMs() {
+        
+        modifiedDatetimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long loginDatetimeMs_ ;
+      /**
+       * <pre>
+       * note that login does not count as a modification
+       * </pre>
+       *
+       * <code>int64 login_datetime_ms = 6;</code>
+       */
+      public long getLoginDatetimeMs() {
+        return loginDatetimeMs_;
+      }
+      /**
+       * <pre>
+       * note that login does not count as a modification
+       * </pre>
+       *
+       * <code>int64 login_datetime_ms = 6;</code>
+       */
+      public Builder setLoginDatetimeMs(long value) {
+        
+        loginDatetimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * note that login does not count as a modification
+       * </pre>
+       *
+       * <code>int64 login_datetime_ms = 6;</code>
+       */
+      public Builder clearLoginDatetimeMs() {
+        
+        loginDatetimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString loginIpAddress_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes login_ip_address = 7;</code>
+       */
+      public com.google.protobuf.ByteString getLoginIpAddress() {
+        return loginIpAddress_;
+      }
+      /**
+       * <code>bytes login_ip_address = 7;</code>
+       */
+      public Builder setLoginIpAddress(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        loginIpAddress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes login_ip_address = 7;</code>
+       */
+      public Builder clearLoginIpAddress() {
+        
+        loginIpAddress_ = getDefaultInstance().getLoginIpAddress();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Auth)
+    }
+
+    // @@protoc_insertion_point(class_scope:Auth)
+    private static final wiki.sliki.model.SlikiModel.Auth DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new wiki.sliki.model.SlikiModel.Auth();
+    }
+
+    public static wiki.sliki.model.SlikiModel.Auth getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Auth>
+        PARSER = new com.google.protobuf.AbstractParser<Auth>() {
+      @java.lang.Override
+      public Auth parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Auth(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Auth> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Auth> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public wiki.sliki.model.SlikiModel.Auth getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuthRecOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AuthRec)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string ext_id = 1;</code>
+     */
+    java.lang.String getExtId();
+    /**
+     * <code>string ext_id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getExtIdBytes();
+
+    /**
+     * <code>bytes pw_hash = 2;</code>
+     */
+    com.google.protobuf.ByteString getPwHash();
+
+    /**
+     * <code>bytes pw_salt = 3;</code>
+     */
+    com.google.protobuf.ByteString getPwSalt();
+
+    /**
+     * <code>.Auth auth = 4;</code>
+     */
+    boolean hasAuth();
+    /**
+     * <code>.Auth auth = 4;</code>
+     */
+    wiki.sliki.model.SlikiModel.Auth getAuth();
+    /**
+     * <code>.Auth auth = 4;</code>
+     */
+    wiki.sliki.model.SlikiModel.AuthOrBuilder getAuthOrBuilder();
+  }
+  /**
+   * Protobuf type {@code AuthRec}
+   */
+  public  static final class AuthRec extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:AuthRec)
+      AuthRecOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AuthRec.newBuilder() to construct.
+    private AuthRec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuthRec() {
+      extId_ = "";
+      pwHash_ = com.google.protobuf.ByteString.EMPTY;
+      pwSalt_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AuthRec(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              extId_ = s;
+              break;
+            }
+            case 18: {
+
+              pwHash_ = input.readBytes();
+              break;
+            }
+            case 26: {
+
+              pwSalt_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              wiki.sliki.model.SlikiModel.Auth.Builder subBuilder = null;
+              if (auth_ != null) {
+                subBuilder = auth_.toBuilder();
+              }
+              auth_ = input.readMessage(wiki.sliki.model.SlikiModel.Auth.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(auth_);
+                auth_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.internal_static_AuthRec_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return wiki.sliki.model.SlikiModel.internal_static_AuthRec_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              wiki.sliki.model.SlikiModel.AuthRec.class, wiki.sliki.model.SlikiModel.AuthRec.Builder.class);
+    }
+
+    public static final int EXT_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object extId_;
+    /**
+     * <code>string ext_id = 1;</code>
+     */
+    public java.lang.String getExtId() {
+      java.lang.Object ref = extId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ext_id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExtIdBytes() {
+      java.lang.Object ref = extId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PW_HASH_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString pwHash_;
+    /**
+     * <code>bytes pw_hash = 2;</code>
+     */
+    public com.google.protobuf.ByteString getPwHash() {
+      return pwHash_;
+    }
+
+    public static final int PW_SALT_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString pwSalt_;
+    /**
+     * <code>bytes pw_salt = 3;</code>
+     */
+    public com.google.protobuf.ByteString getPwSalt() {
+      return pwSalt_;
+    }
+
+    public static final int AUTH_FIELD_NUMBER = 4;
+    private wiki.sliki.model.SlikiModel.Auth auth_;
+    /**
+     * <code>.Auth auth = 4;</code>
+     */
+    public boolean hasAuth() {
+      return auth_ != null;
+    }
+    /**
+     * <code>.Auth auth = 4;</code>
+     */
+    public wiki.sliki.model.SlikiModel.Auth getAuth() {
+      return auth_ == null ? wiki.sliki.model.SlikiModel.Auth.getDefaultInstance() : auth_;
+    }
+    /**
+     * <code>.Auth auth = 4;</code>
+     */
+    public wiki.sliki.model.SlikiModel.AuthOrBuilder getAuthOrBuilder() {
+      return getAuth();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getExtIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, extId_);
+      }
+      if (!pwHash_.isEmpty()) {
+        output.writeBytes(2, pwHash_);
+      }
+      if (!pwSalt_.isEmpty()) {
+        output.writeBytes(3, pwSalt_);
+      }
+      if (auth_ != null) {
+        output.writeMessage(4, getAuth());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getExtIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, extId_);
+      }
+      if (!pwHash_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, pwHash_);
+      }
+      if (!pwSalt_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, pwSalt_);
+      }
+      if (auth_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getAuth());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof wiki.sliki.model.SlikiModel.AuthRec)) {
+        return super.equals(obj);
+      }
+      wiki.sliki.model.SlikiModel.AuthRec other = (wiki.sliki.model.SlikiModel.AuthRec) obj;
+
+      boolean result = true;
+      result = result && getExtId()
+          .equals(other.getExtId());
+      result = result && getPwHash()
+          .equals(other.getPwHash());
+      result = result && getPwSalt()
+          .equals(other.getPwSalt());
+      result = result && (hasAuth() == other.hasAuth());
+      if (hasAuth()) {
+        result = result && getAuth()
+            .equals(other.getAuth());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EXT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getExtId().hashCode();
+      hash = (37 * hash) + PW_HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getPwHash().hashCode();
+      hash = (37 * hash) + PW_SALT_FIELD_NUMBER;
+      hash = (53 * hash) + getPwSalt().hashCode();
+      if (hasAuth()) {
+        hash = (37 * hash) + AUTH_FIELD_NUMBER;
+        hash = (53 * hash) + getAuth().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.AuthRec parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(wiki.sliki.model.SlikiModel.AuthRec prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code AuthRec}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:AuthRec)
+        wiki.sliki.model.SlikiModel.AuthRecOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return wiki.sliki.model.SlikiModel.internal_static_AuthRec_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return wiki.sliki.model.SlikiModel.internal_static_AuthRec_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                wiki.sliki.model.SlikiModel.AuthRec.class, wiki.sliki.model.SlikiModel.AuthRec.Builder.class);
+      }
+
+      // Construct using wiki.sliki.model.SlikiModel.AuthRec.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        extId_ = "";
+
+        pwHash_ = com.google.protobuf.ByteString.EMPTY;
+
+        pwSalt_ = com.google.protobuf.ByteString.EMPTY;
+
+        if (authBuilder_ == null) {
+          auth_ = null;
+        } else {
+          auth_ = null;
+          authBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return wiki.sliki.model.SlikiModel.internal_static_AuthRec_descriptor;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.AuthRec getDefaultInstanceForType() {
+        return wiki.sliki.model.SlikiModel.AuthRec.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.AuthRec build() {
+        wiki.sliki.model.SlikiModel.AuthRec result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.AuthRec buildPartial() {
+        wiki.sliki.model.SlikiModel.AuthRec result = new wiki.sliki.model.SlikiModel.AuthRec(this);
+        result.extId_ = extId_;
+        result.pwHash_ = pwHash_;
+        result.pwSalt_ = pwSalt_;
+        if (authBuilder_ == null) {
+          result.auth_ = auth_;
+        } else {
+          result.auth_ = authBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof wiki.sliki.model.SlikiModel.AuthRec) {
+          return mergeFrom((wiki.sliki.model.SlikiModel.AuthRec)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(wiki.sliki.model.SlikiModel.AuthRec other) {
+        if (other == wiki.sliki.model.SlikiModel.AuthRec.getDefaultInstance()) return this;
+        if (!other.getExtId().isEmpty()) {
+          extId_ = other.extId_;
+          onChanged();
+        }
+        if (other.getPwHash() != com.google.protobuf.ByteString.EMPTY) {
+          setPwHash(other.getPwHash());
+        }
+        if (other.getPwSalt() != com.google.protobuf.ByteString.EMPTY) {
+          setPwSalt(other.getPwSalt());
+        }
+        if (other.hasAuth()) {
+          mergeAuth(other.getAuth());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        wiki.sliki.model.SlikiModel.AuthRec parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (wiki.sliki.model.SlikiModel.AuthRec) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object extId_ = "";
+      /**
+       * <code>string ext_id = 1;</code>
+       */
+      public java.lang.String getExtId() {
+        java.lang.Object ref = extId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string ext_id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtIdBytes() {
+        java.lang.Object ref = extId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ext_id = 1;</code>
+       */
+      public Builder setExtId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        extId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ext_id = 1;</code>
+       */
+      public Builder clearExtId() {
+        
+        extId_ = getDefaultInstance().getExtId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ext_id = 1;</code>
+       */
+      public Builder setExtIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        extId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString pwHash_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes pw_hash = 2;</code>
+       */
+      public com.google.protobuf.ByteString getPwHash() {
+        return pwHash_;
+      }
+      /**
+       * <code>bytes pw_hash = 2;</code>
+       */
+      public Builder setPwHash(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pwHash_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes pw_hash = 2;</code>
+       */
+      public Builder clearPwHash() {
+        
+        pwHash_ = getDefaultInstance().getPwHash();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString pwSalt_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes pw_salt = 3;</code>
+       */
+      public com.google.protobuf.ByteString getPwSalt() {
+        return pwSalt_;
+      }
+      /**
+       * <code>bytes pw_salt = 3;</code>
+       */
+      public Builder setPwSalt(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pwSalt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes pw_salt = 3;</code>
+       */
+      public Builder clearPwSalt() {
+        
+        pwSalt_ = getDefaultInstance().getPwSalt();
+        onChanged();
+        return this;
+      }
+
+      private wiki.sliki.model.SlikiModel.Auth auth_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.Auth, wiki.sliki.model.SlikiModel.Auth.Builder, wiki.sliki.model.SlikiModel.AuthOrBuilder> authBuilder_;
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public boolean hasAuth() {
+        return authBuilder_ != null || auth_ != null;
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth getAuth() {
+        if (authBuilder_ == null) {
+          return auth_ == null ? wiki.sliki.model.SlikiModel.Auth.getDefaultInstance() : auth_;
+        } else {
+          return authBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public Builder setAuth(wiki.sliki.model.SlikiModel.Auth value) {
+        if (authBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          auth_ = value;
+          onChanged();
+        } else {
+          authBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public Builder setAuth(
+          wiki.sliki.model.SlikiModel.Auth.Builder builderForValue) {
+        if (authBuilder_ == null) {
+          auth_ = builderForValue.build();
+          onChanged();
+        } else {
+          authBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public Builder mergeAuth(wiki.sliki.model.SlikiModel.Auth value) {
+        if (authBuilder_ == null) {
+          if (auth_ != null) {
+            auth_ =
+              wiki.sliki.model.SlikiModel.Auth.newBuilder(auth_).mergeFrom(value).buildPartial();
+          } else {
+            auth_ = value;
+          }
+          onChanged();
+        } else {
+          authBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public Builder clearAuth() {
+        if (authBuilder_ == null) {
+          auth_ = null;
+          onChanged();
+        } else {
+          auth_ = null;
+          authBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public wiki.sliki.model.SlikiModel.Auth.Builder getAuthBuilder() {
+        
+        onChanged();
+        return getAuthFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      public wiki.sliki.model.SlikiModel.AuthOrBuilder getAuthOrBuilder() {
+        if (authBuilder_ != null) {
+          return authBuilder_.getMessageOrBuilder();
+        } else {
+          return auth_ == null ?
+              wiki.sliki.model.SlikiModel.Auth.getDefaultInstance() : auth_;
+        }
+      }
+      /**
+       * <code>.Auth auth = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.Auth, wiki.sliki.model.SlikiModel.Auth.Builder, wiki.sliki.model.SlikiModel.AuthOrBuilder> 
+          getAuthFieldBuilder() {
+        if (authBuilder_ == null) {
+          authBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              wiki.sliki.model.SlikiModel.Auth, wiki.sliki.model.SlikiModel.Auth.Builder, wiki.sliki.model.SlikiModel.AuthOrBuilder>(
+                  getAuth(),
+                  getParentForChildren(),
+                  isClean());
+          auth_ = null;
+        }
+        return authBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:AuthRec)
+    }
+
+    // @@protoc_insertion_point(class_scope:AuthRec)
+    private static final wiki.sliki.model.SlikiModel.AuthRec DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new wiki.sliki.model.SlikiModel.AuthRec();
+    }
+
+    public static wiki.sliki.model.SlikiModel.AuthRec getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuthRec>
+        PARSER = new com.google.protobuf.AbstractParser<AuthRec>() {
+      @java.lang.Override
+      public AuthRec parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AuthRec(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuthRec> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuthRec> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public wiki.sliki.model.SlikiModel.AuthRec getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SessionIdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SessionId)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 32-byte session_id
+     * </pre>
+     *
+     * <code>bytes binary_uuid = 1;</code>
+     */
+    com.google.protobuf.ByteString getBinaryUuid();
+  }
+  /**
+   * Protobuf type {@code SessionId}
+   */
+  public  static final class SessionId extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SessionId)
+      SessionIdOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SessionId.newBuilder() to construct.
+    private SessionId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SessionId() {
+      binaryUuid_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SessionId(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              binaryUuid_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.internal_static_SessionId_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return wiki.sliki.model.SlikiModel.internal_static_SessionId_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              wiki.sliki.model.SlikiModel.SessionId.class, wiki.sliki.model.SlikiModel.SessionId.Builder.class);
+    }
+
+    public static final int BINARY_UUID_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString binaryUuid_;
+    /**
+     * <pre>
+     * 32-byte session_id
+     * </pre>
+     *
+     * <code>bytes binary_uuid = 1;</code>
+     */
+    public com.google.protobuf.ByteString getBinaryUuid() {
+      return binaryUuid_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!binaryUuid_.isEmpty()) {
+        output.writeBytes(1, binaryUuid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!binaryUuid_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, binaryUuid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof wiki.sliki.model.SlikiModel.SessionId)) {
+        return super.equals(obj);
+      }
+      wiki.sliki.model.SlikiModel.SessionId other = (wiki.sliki.model.SlikiModel.SessionId) obj;
+
+      boolean result = true;
+      result = result && getBinaryUuid()
+          .equals(other.getBinaryUuid());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + BINARY_UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getBinaryUuid().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.SessionId parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(wiki.sliki.model.SlikiModel.SessionId prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SessionId}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SessionId)
+        wiki.sliki.model.SlikiModel.SessionIdOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return wiki.sliki.model.SlikiModel.internal_static_SessionId_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return wiki.sliki.model.SlikiModel.internal_static_SessionId_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                wiki.sliki.model.SlikiModel.SessionId.class, wiki.sliki.model.SlikiModel.SessionId.Builder.class);
+      }
+
+      // Construct using wiki.sliki.model.SlikiModel.SessionId.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        binaryUuid_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return wiki.sliki.model.SlikiModel.internal_static_SessionId_descriptor;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.SessionId getDefaultInstanceForType() {
+        return wiki.sliki.model.SlikiModel.SessionId.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.SessionId build() {
+        wiki.sliki.model.SlikiModel.SessionId result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.SessionId buildPartial() {
+        wiki.sliki.model.SlikiModel.SessionId result = new wiki.sliki.model.SlikiModel.SessionId(this);
+        result.binaryUuid_ = binaryUuid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof wiki.sliki.model.SlikiModel.SessionId) {
+          return mergeFrom((wiki.sliki.model.SlikiModel.SessionId)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(wiki.sliki.model.SlikiModel.SessionId other) {
+        if (other == wiki.sliki.model.SlikiModel.SessionId.getDefaultInstance()) return this;
+        if (other.getBinaryUuid() != com.google.protobuf.ByteString.EMPTY) {
+          setBinaryUuid(other.getBinaryUuid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        wiki.sliki.model.SlikiModel.SessionId parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (wiki.sliki.model.SlikiModel.SessionId) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString binaryUuid_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * 32-byte session_id
+       * </pre>
+       *
+       * <code>bytes binary_uuid = 1;</code>
+       */
+      public com.google.protobuf.ByteString getBinaryUuid() {
+        return binaryUuid_;
+      }
+      /**
+       * <pre>
+       * 32-byte session_id
+       * </pre>
+       *
+       * <code>bytes binary_uuid = 1;</code>
+       */
+      public Builder setBinaryUuid(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        binaryUuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 32-byte session_id
+       * </pre>
+       *
+       * <code>bytes binary_uuid = 1;</code>
+       */
+      public Builder clearBinaryUuid() {
+        
+        binaryUuid_ = getDefaultInstance().getBinaryUuid();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SessionId)
+    }
+
+    // @@protoc_insertion_point(class_scope:SessionId)
+    private static final wiki.sliki.model.SlikiModel.SessionId DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new wiki.sliki.model.SlikiModel.SessionId();
+    }
+
+    public static wiki.sliki.model.SlikiModel.SessionId getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SessionId>
+        PARSER = new com.google.protobuf.AbstractParser<SessionId>() {
+      @java.lang.Override
+      public SessionId parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SessionId(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SessionId> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SessionId> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public wiki.sliki.model.SlikiModel.SessionId getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SessionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Session)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.SessionId session_id = 1;</code>
+     */
+    boolean hasSessionId();
+    /**
+     * <code>.SessionId session_id = 1;</code>
+     */
+    wiki.sliki.model.SlikiModel.SessionId getSessionId();
+    /**
+     * <code>.SessionId session_id = 1;</code>
+     */
+    wiki.sliki.model.SlikiModel.SessionIdOrBuilder getSessionIdOrBuilder();
+
+    /**
+     * <code>.PersonaId persona_id = 2;</code>
+     */
+    boolean hasPersonaId();
+    /**
+     * <code>.PersonaId persona_id = 2;</code>
+     */
+    wiki.sliki.model.SlikiModel.PersonaId getPersonaId();
+    /**
+     * <code>.PersonaId persona_id = 2;</code>
+     */
+    wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getPersonaIdOrBuilder();
+
+    /**
+     * <code>int64 start_datetime_ms = 3;</code>
+     */
+    long getStartDatetimeMs();
+
+    /**
+     * <code>int64 expire_datetime_ms = 4;</code>
+     */
+    long getExpireDatetimeMs();
+  }
+  /**
+   * Protobuf type {@code Session}
+   */
+  public  static final class Session extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Session)
+      SessionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Session.newBuilder() to construct.
+    private Session(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Session() {
+      startDatetimeMs_ = 0L;
+      expireDatetimeMs_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Session(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              wiki.sliki.model.SlikiModel.SessionId.Builder subBuilder = null;
+              if (sessionId_ != null) {
+                subBuilder = sessionId_.toBuilder();
+              }
+              sessionId_ = input.readMessage(wiki.sliki.model.SlikiModel.SessionId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sessionId_);
+                sessionId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              wiki.sliki.model.SlikiModel.PersonaId.Builder subBuilder = null;
+              if (personaId_ != null) {
+                subBuilder = personaId_.toBuilder();
+              }
+              personaId_ = input.readMessage(wiki.sliki.model.SlikiModel.PersonaId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(personaId_);
+                personaId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              startDatetimeMs_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              expireDatetimeMs_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.internal_static_Session_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return wiki.sliki.model.SlikiModel.internal_static_Session_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              wiki.sliki.model.SlikiModel.Session.class, wiki.sliki.model.SlikiModel.Session.Builder.class);
+    }
+
+    public static final int SESSION_ID_FIELD_NUMBER = 1;
+    private wiki.sliki.model.SlikiModel.SessionId sessionId_;
+    /**
+     * <code>.SessionId session_id = 1;</code>
+     */
+    public boolean hasSessionId() {
+      return sessionId_ != null;
+    }
+    /**
+     * <code>.SessionId session_id = 1;</code>
+     */
+    public wiki.sliki.model.SlikiModel.SessionId getSessionId() {
+      return sessionId_ == null ? wiki.sliki.model.SlikiModel.SessionId.getDefaultInstance() : sessionId_;
+    }
+    /**
+     * <code>.SessionId session_id = 1;</code>
+     */
+    public wiki.sliki.model.SlikiModel.SessionIdOrBuilder getSessionIdOrBuilder() {
+      return getSessionId();
+    }
+
+    public static final int PERSONA_ID_FIELD_NUMBER = 2;
+    private wiki.sliki.model.SlikiModel.PersonaId personaId_;
+    /**
+     * <code>.PersonaId persona_id = 2;</code>
+     */
+    public boolean hasPersonaId() {
+      return personaId_ != null;
+    }
+    /**
+     * <code>.PersonaId persona_id = 2;</code>
+     */
+    public wiki.sliki.model.SlikiModel.PersonaId getPersonaId() {
+      return personaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : personaId_;
+    }
+    /**
+     * <code>.PersonaId persona_id = 2;</code>
+     */
+    public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getPersonaIdOrBuilder() {
+      return getPersonaId();
+    }
+
+    public static final int START_DATETIME_MS_FIELD_NUMBER = 3;
+    private long startDatetimeMs_;
+    /**
+     * <code>int64 start_datetime_ms = 3;</code>
+     */
+    public long getStartDatetimeMs() {
+      return startDatetimeMs_;
+    }
+
+    public static final int EXPIRE_DATETIME_MS_FIELD_NUMBER = 4;
+    private long expireDatetimeMs_;
+    /**
+     * <code>int64 expire_datetime_ms = 4;</code>
+     */
+    public long getExpireDatetimeMs() {
+      return expireDatetimeMs_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (sessionId_ != null) {
+        output.writeMessage(1, getSessionId());
+      }
+      if (personaId_ != null) {
+        output.writeMessage(2, getPersonaId());
+      }
+      if (startDatetimeMs_ != 0L) {
+        output.writeInt64(3, startDatetimeMs_);
+      }
+      if (expireDatetimeMs_ != 0L) {
+        output.writeInt64(4, expireDatetimeMs_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (sessionId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getSessionId());
+      }
+      if (personaId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getPersonaId());
+      }
+      if (startDatetimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, startDatetimeMs_);
+      }
+      if (expireDatetimeMs_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, expireDatetimeMs_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof wiki.sliki.model.SlikiModel.Session)) {
+        return super.equals(obj);
+      }
+      wiki.sliki.model.SlikiModel.Session other = (wiki.sliki.model.SlikiModel.Session) obj;
+
+      boolean result = true;
+      result = result && (hasSessionId() == other.hasSessionId());
+      if (hasSessionId()) {
+        result = result && getSessionId()
+            .equals(other.getSessionId());
+      }
+      result = result && (hasPersonaId() == other.hasPersonaId());
+      if (hasPersonaId()) {
+        result = result && getPersonaId()
+            .equals(other.getPersonaId());
+      }
+      result = result && (getStartDatetimeMs()
+          == other.getStartDatetimeMs());
+      result = result && (getExpireDatetimeMs()
+          == other.getExpireDatetimeMs());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSessionId()) {
+        hash = (37 * hash) + SESSION_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getSessionId().hashCode();
+      }
+      if (hasPersonaId()) {
+        hash = (37 * hash) + PERSONA_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getPersonaId().hashCode();
+      }
+      hash = (37 * hash) + START_DATETIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartDatetimeMs());
+      hash = (37 * hash) + EXPIRE_DATETIME_MS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExpireDatetimeMs());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static wiki.sliki.model.SlikiModel.Session parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(wiki.sliki.model.SlikiModel.Session prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Session}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Session)
+        wiki.sliki.model.SlikiModel.SessionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return wiki.sliki.model.SlikiModel.internal_static_Session_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return wiki.sliki.model.SlikiModel.internal_static_Session_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                wiki.sliki.model.SlikiModel.Session.class, wiki.sliki.model.SlikiModel.Session.Builder.class);
+      }
+
+      // Construct using wiki.sliki.model.SlikiModel.Session.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (sessionIdBuilder_ == null) {
+          sessionId_ = null;
+        } else {
+          sessionId_ = null;
+          sessionIdBuilder_ = null;
+        }
+        if (personaIdBuilder_ == null) {
+          personaId_ = null;
+        } else {
+          personaId_ = null;
+          personaIdBuilder_ = null;
+        }
+        startDatetimeMs_ = 0L;
+
+        expireDatetimeMs_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return wiki.sliki.model.SlikiModel.internal_static_Session_descriptor;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Session getDefaultInstanceForType() {
+        return wiki.sliki.model.SlikiModel.Session.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Session build() {
+        wiki.sliki.model.SlikiModel.Session result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public wiki.sliki.model.SlikiModel.Session buildPartial() {
+        wiki.sliki.model.SlikiModel.Session result = new wiki.sliki.model.SlikiModel.Session(this);
+        if (sessionIdBuilder_ == null) {
+          result.sessionId_ = sessionId_;
+        } else {
+          result.sessionId_ = sessionIdBuilder_.build();
+        }
+        if (personaIdBuilder_ == null) {
+          result.personaId_ = personaId_;
+        } else {
+          result.personaId_ = personaIdBuilder_.build();
+        }
+        result.startDatetimeMs_ = startDatetimeMs_;
+        result.expireDatetimeMs_ = expireDatetimeMs_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof wiki.sliki.model.SlikiModel.Session) {
+          return mergeFrom((wiki.sliki.model.SlikiModel.Session)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(wiki.sliki.model.SlikiModel.Session other) {
+        if (other == wiki.sliki.model.SlikiModel.Session.getDefaultInstance()) return this;
+        if (other.hasSessionId()) {
+          mergeSessionId(other.getSessionId());
+        }
+        if (other.hasPersonaId()) {
+          mergePersonaId(other.getPersonaId());
+        }
+        if (other.getStartDatetimeMs() != 0L) {
+          setStartDatetimeMs(other.getStartDatetimeMs());
+        }
+        if (other.getExpireDatetimeMs() != 0L) {
+          setExpireDatetimeMs(other.getExpireDatetimeMs());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        wiki.sliki.model.SlikiModel.Session parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (wiki.sliki.model.SlikiModel.Session) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private wiki.sliki.model.SlikiModel.SessionId sessionId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.SessionId, wiki.sliki.model.SlikiModel.SessionId.Builder, wiki.sliki.model.SlikiModel.SessionIdOrBuilder> sessionIdBuilder_;
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public boolean hasSessionId() {
+        return sessionIdBuilder_ != null || sessionId_ != null;
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public wiki.sliki.model.SlikiModel.SessionId getSessionId() {
+        if (sessionIdBuilder_ == null) {
+          return sessionId_ == null ? wiki.sliki.model.SlikiModel.SessionId.getDefaultInstance() : sessionId_;
+        } else {
+          return sessionIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public Builder setSessionId(wiki.sliki.model.SlikiModel.SessionId value) {
+        if (sessionIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sessionId_ = value;
+          onChanged();
+        } else {
+          sessionIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public Builder setSessionId(
+          wiki.sliki.model.SlikiModel.SessionId.Builder builderForValue) {
+        if (sessionIdBuilder_ == null) {
+          sessionId_ = builderForValue.build();
+          onChanged();
+        } else {
+          sessionIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public Builder mergeSessionId(wiki.sliki.model.SlikiModel.SessionId value) {
+        if (sessionIdBuilder_ == null) {
+          if (sessionId_ != null) {
+            sessionId_ =
+              wiki.sliki.model.SlikiModel.SessionId.newBuilder(sessionId_).mergeFrom(value).buildPartial();
+          } else {
+            sessionId_ = value;
+          }
+          onChanged();
+        } else {
+          sessionIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public Builder clearSessionId() {
+        if (sessionIdBuilder_ == null) {
+          sessionId_ = null;
+          onChanged();
+        } else {
+          sessionId_ = null;
+          sessionIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public wiki.sliki.model.SlikiModel.SessionId.Builder getSessionIdBuilder() {
+        
+        onChanged();
+        return getSessionIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      public wiki.sliki.model.SlikiModel.SessionIdOrBuilder getSessionIdOrBuilder() {
+        if (sessionIdBuilder_ != null) {
+          return sessionIdBuilder_.getMessageOrBuilder();
+        } else {
+          return sessionId_ == null ?
+              wiki.sliki.model.SlikiModel.SessionId.getDefaultInstance() : sessionId_;
+        }
+      }
+      /**
+       * <code>.SessionId session_id = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.SessionId, wiki.sliki.model.SlikiModel.SessionId.Builder, wiki.sliki.model.SlikiModel.SessionIdOrBuilder> 
+          getSessionIdFieldBuilder() {
+        if (sessionIdBuilder_ == null) {
+          sessionIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              wiki.sliki.model.SlikiModel.SessionId, wiki.sliki.model.SlikiModel.SessionId.Builder, wiki.sliki.model.SlikiModel.SessionIdOrBuilder>(
+                  getSessionId(),
+                  getParentForChildren(),
+                  isClean());
+          sessionId_ = null;
+        }
+        return sessionIdBuilder_;
+      }
+
+      private wiki.sliki.model.SlikiModel.PersonaId personaId_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> personaIdBuilder_;
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public boolean hasPersonaId() {
+        return personaIdBuilder_ != null || personaId_ != null;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.PersonaId getPersonaId() {
+        if (personaIdBuilder_ == null) {
+          return personaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : personaId_;
+        } else {
+          return personaIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public Builder setPersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
+        if (personaIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          personaId_ = value;
+          onChanged();
+        } else {
+          personaIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public Builder setPersonaId(
+          wiki.sliki.model.SlikiModel.PersonaId.Builder builderForValue) {
+        if (personaIdBuilder_ == null) {
+          personaId_ = builderForValue.build();
+          onChanged();
+        } else {
+          personaIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public Builder mergePersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
+        if (personaIdBuilder_ == null) {
+          if (personaId_ != null) {
+            personaId_ =
+              wiki.sliki.model.SlikiModel.PersonaId.newBuilder(personaId_).mergeFrom(value).buildPartial();
+          } else {
+            personaId_ = value;
+          }
+          onChanged();
+        } else {
+          personaIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public Builder clearPersonaId() {
+        if (personaIdBuilder_ == null) {
+          personaId_ = null;
+          onChanged();
+        } else {
+          personaId_ = null;
+          personaIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.PersonaId.Builder getPersonaIdBuilder() {
+        
+        onChanged();
+        return getPersonaIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getPersonaIdOrBuilder() {
+        if (personaIdBuilder_ != null) {
+          return personaIdBuilder_.getMessageOrBuilder();
+        } else {
+          return personaId_ == null ?
+              wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : personaId_;
+        }
+      }
+      /**
+       * <code>.PersonaId persona_id = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> 
+          getPersonaIdFieldBuilder() {
+        if (personaIdBuilder_ == null) {
+          personaIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder>(
+                  getPersonaId(),
+                  getParentForChildren(),
+                  isClean());
+          personaId_ = null;
+        }
+        return personaIdBuilder_;
+      }
+
+      private long startDatetimeMs_ ;
+      /**
+       * <code>int64 start_datetime_ms = 3;</code>
+       */
+      public long getStartDatetimeMs() {
+        return startDatetimeMs_;
+      }
+      /**
+       * <code>int64 start_datetime_ms = 3;</code>
+       */
+      public Builder setStartDatetimeMs(long value) {
+        
+        startDatetimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 start_datetime_ms = 3;</code>
+       */
+      public Builder clearStartDatetimeMs() {
+        
+        startDatetimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long expireDatetimeMs_ ;
+      /**
+       * <code>int64 expire_datetime_ms = 4;</code>
+       */
+      public long getExpireDatetimeMs() {
+        return expireDatetimeMs_;
+      }
+      /**
+       * <code>int64 expire_datetime_ms = 4;</code>
+       */
+      public Builder setExpireDatetimeMs(long value) {
+        
+        expireDatetimeMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 expire_datetime_ms = 4;</code>
+       */
+      public Builder clearExpireDatetimeMs() {
+        
+        expireDatetimeMs_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Session)
+    }
+
+    // @@protoc_insertion_point(class_scope:Session)
+    private static final wiki.sliki.model.SlikiModel.Session DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new wiki.sliki.model.SlikiModel.Session();
+    }
+
+    public static wiki.sliki.model.SlikiModel.Session getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Session>
+        PARSER = new com.google.protobuf.AbstractParser<Session>() {
+      @java.lang.Override
+      public Session parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Session(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Session> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Session> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public wiki.sliki.model.SlikiModel.Session getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UserId_descriptor;
   private static final 
@@ -10632,6 +15343,31 @@ public final class SlikiModel {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_MessageRef_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Auth_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Auth_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Auth_PersonaRef_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Auth_PersonaRef_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AuthRec_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AuthRec_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SessionId_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SessionId_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Session_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Session_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -10649,50 +15385,65 @@ public final class SlikiModel {
       "\001(\003\022\022\n\ngiven_name\030\006 \001(\t\022\023\n\013family_name\030\007" +
       " \001(\t\022\024\n\014display_name\030\010 \001(\t\022&\n\022default_pe" +
       "rsona_id\030\t \001(\0132\n.PersonaId\" \n\tPersonaId\022" +
-      "\023\n\013binary_uuid\030\001 \001(\014\"\276\001\n\007Persona\022\036\n\npers" +
+      "\023\n\013binary_uuid\030\001 \001(\014\"\330\001\n\007Persona\022\036\n\npers" +
       "ona_id\030\001 \001(\0132\n.PersonaId\022\"\n\014persona_type" +
       "\030\002 \001(\0162\014.PersonaType\022\036\n\006status\030\003 \001(\0162\016.P" +
       "ersonaStatus\022\033\n\023created_datetime_ms\030\004 \001(" +
       "\003\022\034\n\024modified_datetime_ms\030\005 \001(\003\022\024\n\014displ" +
-      "ay_name\030\006 \001(\t\"\034\n\005OrgId\022\023\n\013binary_uuid\030\001 " +
-      "\001(\014\"\246\001\n\003Org\022\026\n\006org_id\030\001 \001(\0132\006.OrgId\022\032\n\010o" +
-      "rg_type\030\002 \001(\0162\010.OrgType\022\032\n\006status\030\003 \001(\0162" +
-      "\n.OrgStatus\022\033\n\023created_datetime_ms\030\004 \001(\003" +
-      "\022\034\n\024modified_datetime_ms\030\005 \001(\003\022\024\n\014displa" +
-      "y_name\030\006 \001(\t\"\036\n\007GroupId\022\023\n\013binary_uuid\030\001" +
-      " \001(\014\"\330\001\n\005Group\022\032\n\010group_id\030\001 \001(\0132\010.Group" +
-      "Id\022\036\n\ngroup_type\030\002 \001(\0162\n.GroupType\022$\n\nvi" +
-      "sibility\030\003 \001(\0162\020.GroupVisibility\022\034\n\006stat" +
-      "us\030\004 \001(\0162\014.GroupStatus\022\033\n\023created_dateti" +
-      "me_ms\030\005 \001(\003\022\034\n\024modified_datetime_ms\030\006 \001(" +
-      "\003\022\024\n\014display_name\030\007 \001(\t\" \n\tMessageId\022\023\n\013" +
-      "binary_uuid\030\001 \001(\014\"\204\002\n\007Message\022\036\n\nmessage" +
-      "_id\030\001 \001(\0132\n.MessageId\022\"\n\014message_type\030\002 " +
-      "\001(\0162\014.MessageType\022\036\n\006status\030\003 \001(\0162\016.Mess" +
-      "ageStatus\022\033\n\023created_datetime_ms\030\004 \001(\003\022\034" +
-      "\n\024modified_datetime_ms\030\005 \001(\003\022%\n\021create_p" +
-      "ersona_id\030\006 \001(\0132\n.PersonaId\022\035\n\rcreate_or" +
-      "g_id\030\007 \001(\0132\006.OrgId\022\024\n\014message_body\030\010 \001(\t" +
-      "\"Y\n\nMessageRef\022\"\n\016ref_message_id\030\001 \001(\0132\n" +
-      ".MessageId\022\'\n\023original_message_id\030\002 \001(\0132" +
-      "\n.MessageId*1\n\010UserType\022\021\n\rUSER_PERSONAL" +
-      "\020\000\022\022\n\016USER_ORG_BASED\020\001*F\n\nUserStatus\022\017\n\013" +
-      "USER_ACTIVE\020\000\022\023\n\017USER_UNVERIFIED\020\001\022\022\n\016US" +
-      "ER_SUSPENDED\020\002*\"\n\013PersonaType\022\023\n\017PERSONA" +
-      "_REGULAR\020\000*#\n\rPersonaStatus\022\022\n\016PERSONA_A" +
-      "CTIVE\020\000*\316\001\n\007OrgType\022\030\n\024ORG_NON_PROFIT_OT" +
-      "HER\020\000\022\036\n\032ORG_NON_PROFIT_EDUCATIONAL\020\001\022\034\n" +
-      "\030ORG_NON_PROFIT_RELIGIOUS\020\002\022\035\n\031ORG_NON_P" +
-      "ROFIT_GOVERNMENT\020\003\022\030\n\024ORG_FOR_PROFIT_OTH" +
-      "ER\020\004\022\030\n\024ORG_FOR_PROFIT_SMALL\020\005\022\030\n\024ORG_FO" +
-      "R_PROFIT_LARGE\020\006*\033\n\tOrgStatus\022\016\n\nORG_ACT" +
-      "IVE\020\000*.\n\tGroupType\022\022\n\016GROUP_PERSONAL\020\000\022\r" +
-      "\n\tGROUP_ORG\020\001*6\n\017GroupVisibility\022\020\n\014GROU" +
-      "P_PUBLIC\020\000\022\021\n\rGROUP_PRIVATE\020\001*\037\n\013GroupSt" +
-      "atus\022\020\n\014GROUP_ACTIVE\020\000*-\n\013MessageType\022\016\n" +
-      "\nMSG_SIMPLE\020\000\022\016\n\nMSG_THREAD\020\001* \n\rMessage" +
-      "Status\022\017\n\013MSG_VISIBLE\020\000B\022\n\020wiki.sliki.mo" +
-      "delb\006proto3"
+      "ay_name\030\006 \001(\t\022\030\n\007user_id\030\007 \001(\0132\007.UserId\"" +
+      "\034\n\005OrgId\022\023\n\013binary_uuid\030\001 \001(\014\"\246\001\n\003Org\022\026\n" +
+      "\006org_id\030\001 \001(\0132\006.OrgId\022\032\n\010org_type\030\002 \001(\0162" +
+      "\010.OrgType\022\032\n\006status\030\003 \001(\0162\n.OrgStatus\022\033\n" +
+      "\023created_datetime_ms\030\004 \001(\003\022\034\n\024modified_d" +
+      "atetime_ms\030\005 \001(\003\022\024\n\014display_name\030\006 \001(\t\"\036" +
+      "\n\007GroupId\022\023\n\013binary_uuid\030\001 \001(\014\"\330\001\n\005Group" +
+      "\022\032\n\010group_id\030\001 \001(\0132\010.GroupId\022\036\n\ngroup_ty" +
+      "pe\030\002 \001(\0162\n.GroupType\022$\n\nvisibility\030\003 \001(\016" +
+      "2\020.GroupVisibility\022\034\n\006status\030\004 \001(\0162\014.Gro" +
+      "upStatus\022\033\n\023created_datetime_ms\030\005 \001(\003\022\034\n" +
+      "\024modified_datetime_ms\030\006 \001(\003\022\024\n\014display_n" +
+      "ame\030\007 \001(\t\" \n\tMessageId\022\023\n\013binary_uuid\030\001 " +
+      "\001(\014\"\205\002\n\007Message\022\036\n\nmessage_id\030\001 \001(\0132\n.Me" +
+      "ssageId\022\"\n\014message_type\030\002 \001(\0162\014.MessageT" +
+      "ype\022\036\n\006status\030\003 \001(\0162\016.MessageStatus\022\033\n\023c" +
+      "reated_datetime_ms\030\004 \001(\003\022\034\n\024modified_dat" +
+      "etime_ms\030\005 \001(\003\022&\n\022created_persona_id\030\006 \001" +
+      "(\0132\n.PersonaId\022\035\n\rcreate_org_id\030\007 \001(\0132\006." +
+      "OrgId\022\024\n\014message_body\030\010 \001(\t\"Y\n\nMessageRe" +
+      "f\022\"\n\016ref_message_id\030\001 \001(\0132\n.MessageId\022\'\n" +
+      "\023original_message_id\030\002 \001(\0132\n.MessageId\"\313" +
+      "\002\n\004Auth\022\030\n\007user_id\030\001 \001(\0132\007.UserId\022\"\n\010per" +
+      "sonas\030\002 \003(\0132\020.Auth.PersonaRef\022\033\n\023created" +
+      "_datetime_ms\030\003 \001(\003\022\034\n\024modified_datetime_" +
+      "ms\030\004 \001(\003\022\031\n\021login_datetime_ms\030\006 \001(\003\022\030\n\020l" +
+      "ogin_ip_address\030\007 \001(\014\032\224\001\n\nPersonaRef\022\020\n\010" +
+      "ext_name\030\001 \001(\t\022\036\n\npersona_id\030\002 \001(\0132\n.Per" +
+      "sonaId\022\033\n\023created_datetime_ms\030\003 \001(\003\022\034\n\024m" +
+      "odified_datetime_ms\030\004 \001(\003\022\031\n\021login_datet" +
+      "ime_ms\030\005 \001(\003\"P\n\007AuthRec\022\016\n\006ext_id\030\001 \001(\t\022" +
+      "\017\n\007pw_hash\030\002 \001(\014\022\017\n\007pw_salt\030\003 \001(\014\022\023\n\004aut" +
+      "h\030\004 \001(\0132\005.Auth\" \n\tSessionId\022\023\n\013binary_uu" +
+      "id\030\001 \001(\014\"\200\001\n\007Session\022\036\n\nsession_id\030\001 \001(\013" +
+      "2\n.SessionId\022\036\n\npersona_id\030\002 \001(\0132\n.Perso" +
+      "naId\022\031\n\021start_datetime_ms\030\003 \001(\003\022\032\n\022expir" +
+      "e_datetime_ms\030\004 \001(\003*1\n\010UserType\022\021\n\rUSER_" +
+      "PERSONAL\020\000\022\022\n\016USER_ORG_BASED\020\001*F\n\nUserSt" +
+      "atus\022\017\n\013USER_ACTIVE\020\000\022\023\n\017USER_UNVERIFIED" +
+      "\020\001\022\022\n\016USER_SUSPENDED\020\002*\"\n\013PersonaType\022\023\n" +
+      "\017PERSONA_REGULAR\020\000*#\n\rPersonaStatus\022\022\n\016P" +
+      "ERSONA_ACTIVE\020\000*\316\001\n\007OrgType\022\030\n\024ORG_NON_P" +
+      "ROFIT_OTHER\020\000\022\036\n\032ORG_NON_PROFIT_EDUCATIO" +
+      "NAL\020\001\022\034\n\030ORG_NON_PROFIT_RELIGIOUS\020\002\022\035\n\031O" +
+      "RG_NON_PROFIT_GOVERNMENT\020\003\022\030\n\024ORG_FOR_PR" +
+      "OFIT_OTHER\020\004\022\030\n\024ORG_FOR_PROFIT_SMALL\020\005\022\030" +
+      "\n\024ORG_FOR_PROFIT_LARGE\020\006*\033\n\tOrgStatus\022\016\n" +
+      "\nORG_ACTIVE\020\000*.\n\tGroupType\022\022\n\016GROUP_PERS" +
+      "ONAL\020\000\022\r\n\tGROUP_ORG\020\001*6\n\017GroupVisibility" +
+      "\022\020\n\014GROUP_PUBLIC\020\000\022\021\n\rGROUP_PRIVATE\020\001*\037\n" +
+      "\013GroupStatus\022\020\n\014GROUP_ACTIVE\020\000*-\n\013Messag" +
+      "eType\022\016\n\nMSG_SIMPLE\020\000\022\016\n\nMSG_THREAD\020\001* \n" +
+      "\rMessageStatus\022\017\n\013MSG_VISIBLE\020\000B\022\n\020wiki." +
+      "sliki.modelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10729,7 +15480,7 @@ public final class SlikiModel {
     internal_static_Persona_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Persona_descriptor,
-        new java.lang.String[] { "PersonaId", "PersonaType", "Status", "CreatedDatetimeMs", "ModifiedDatetimeMs", "DisplayName", });
+        new java.lang.String[] { "PersonaId", "PersonaType", "Status", "CreatedDatetimeMs", "ModifiedDatetimeMs", "DisplayName", "UserId", });
     internal_static_OrgId_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_OrgId_fieldAccessorTable = new
@@ -10765,13 +15516,43 @@ public final class SlikiModel {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "MessageId", "MessageType", "Status", "CreatedDatetimeMs", "ModifiedDatetimeMs", "CreatePersonaId", "CreateOrgId", "MessageBody", });
+        new java.lang.String[] { "MessageId", "MessageType", "Status", "CreatedDatetimeMs", "ModifiedDatetimeMs", "CreatedPersonaId", "CreateOrgId", "MessageBody", });
     internal_static_MessageRef_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_MessageRef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MessageRef_descriptor,
         new java.lang.String[] { "RefMessageId", "OriginalMessageId", });
+    internal_static_Auth_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_Auth_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Auth_descriptor,
+        new java.lang.String[] { "UserId", "Personas", "CreatedDatetimeMs", "ModifiedDatetimeMs", "LoginDatetimeMs", "LoginIpAddress", });
+    internal_static_Auth_PersonaRef_descriptor =
+      internal_static_Auth_descriptor.getNestedTypes().get(0);
+    internal_static_Auth_PersonaRef_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Auth_PersonaRef_descriptor,
+        new java.lang.String[] { "ExtName", "PersonaId", "CreatedDatetimeMs", "ModifiedDatetimeMs", "LoginDatetimeMs", });
+    internal_static_AuthRec_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_AuthRec_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AuthRec_descriptor,
+        new java.lang.String[] { "ExtId", "PwHash", "PwSalt", "Auth", });
+    internal_static_SessionId_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_SessionId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SessionId_descriptor,
+        new java.lang.String[] { "BinaryUuid", });
+    internal_static_Session_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_Session_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Session_descriptor,
+        new java.lang.String[] { "SessionId", "PersonaId", "StartDatetimeMs", "ExpireDatetimeMs", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

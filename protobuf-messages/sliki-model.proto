@@ -57,6 +57,7 @@ message Persona {
   int64 created_datetime_ms   = 4;
   int64 modified_datetime_ms  = 5;
   string display_name         = 6;
+  UserId user_id              = 7;
 }
 
 message OrgId {
@@ -133,18 +134,55 @@ enum MessageStatus {
 }
 
 message Message {
-  MessageId message_id         = 1;
-  MessageType message_type     = 2;
-  MessageStatus status         = 3;
-  int64 created_datetime_ms    = 4;
-  int64 modified_datetime_ms   = 5;
-  PersonaId create_persona_id  = 6;
-  OrgId create_org_id          = 7;
-  string message_body          = 8;
-  
+  MessageId message_id          = 1;
+  MessageType message_type      = 2;
+  MessageStatus status          = 3;
+  int64 created_datetime_ms     = 4;
+  int64 modified_datetime_ms    = 5;
+  PersonaId created_persona_id  = 6;
+  OrgId create_org_id           = 7;
+  string message_body           = 8;
 }
 
 message MessageRef {
   MessageId ref_message_id       = 1;
   MessageId original_message_id  = 2;
+}
+
+message Auth {
+  message PersonaRef {
+    string ext_name             = 1;
+    PersonaId persona_id        = 2;
+    int64 created_datetime_ms   = 3;
+    int64 modified_datetime_ms  = 4;
+    // note that login does not count as a modification
+    int64 login_datetime_ms     = 5;
+  }
+  UserId user_id                = 1;
+  repeated PersonaRef personas  = 2;
+  int64 created_datetime_ms     = 3;
+  int64 modified_datetime_ms    = 4;
+  // note that login does not count as a modification
+  int64 login_datetime_ms       = 6;
+  bytes login_ip_address        = 7;
+}
+
+message AuthRec {
+  string ext_id   = 1;
+  bytes pw_hash   = 2;
+  bytes pw_salt   = 3;
+  Auth auth       = 4; 
+}
+
+message SessionId {
+  // 32-byte session_id
+  bytes binary_uuid  = 1;
+}
+
+message Session {
+  SessionId session_id       = 1;
+  PersonaId persona_id       = 2;
+  int64 start_datetime_ms    = 3;
+  int64 expire_datetime_ms   = 4;
+  
 }

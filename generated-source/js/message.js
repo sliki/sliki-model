@@ -70,7 +70,7 @@ proto.Message.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 3, 0),
     createdDatetimeMs: jspb.Message.getFieldWithDefault(msg, 4, 0),
     modifiedDatetimeMs: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    createPersonaId: (f = msg.getCreatePersonaId()) && proto.PersonaId.toObject(includeInstance, f),
+    createdPersonaId: (f = msg.getCreatedPersonaId()) && proto.PersonaId.toObject(includeInstance, f),
     createOrgId: (f = msg.getCreateOrgId()) && proto.OrgId.toObject(includeInstance, f),
     messageBody: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
@@ -133,7 +133,7 @@ proto.Message.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = new proto.PersonaId;
       reader.readMessage(value,proto.PersonaId.deserializeBinaryFromReader);
-      msg.setCreatePersonaId(value);
+      msg.setCreatedPersonaId(value);
       break;
     case 7:
       var value = new proto.OrgId;
@@ -209,7 +209,7 @@ proto.Message.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCreatePersonaId();
+  f = message.getCreatedPersonaId();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -326,23 +326,23 @@ proto.Message.prototype.setModifiedDatetimeMs = function(value) {
 
 
 /**
- * optional PersonaId create_persona_id = 6;
+ * optional PersonaId created_persona_id = 6;
  * @return {?proto.PersonaId}
  */
-proto.Message.prototype.getCreatePersonaId = function() {
+proto.Message.prototype.getCreatedPersonaId = function() {
   return /** @type{?proto.PersonaId} */ (
     jspb.Message.getWrapperField(this, proto.PersonaId, 6));
 };
 
 
 /** @param {?proto.PersonaId|undefined} value */
-proto.Message.prototype.setCreatePersonaId = function(value) {
+proto.Message.prototype.setCreatedPersonaId = function(value) {
   jspb.Message.setWrapperField(this, 6, value);
 };
 
 
-proto.Message.prototype.clearCreatePersonaId = function() {
-  this.setCreatePersonaId(undefined);
+proto.Message.prototype.clearCreatedPersonaId = function() {
+  this.setCreatedPersonaId(undefined);
 };
 
 
@@ -350,7 +350,7 @@ proto.Message.prototype.clearCreatePersonaId = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.Message.prototype.hasCreatePersonaId = function() {
+proto.Message.prototype.hasCreatedPersonaId = function() {
   return jspb.Message.getField(this, 6) != null;
 };
 

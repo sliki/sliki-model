@@ -13,6 +13,7 @@ goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
 goog.require('proto.PersonaId');
+goog.require('proto.UserId');
 
 goog.forwardDeclare('proto.PersonaStatus');
 goog.forwardDeclare('proto.PersonaType');
@@ -68,7 +69,8 @@ proto.Persona.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 3, 0),
     createdDatetimeMs: jspb.Message.getFieldWithDefault(msg, 4, 0),
     modifiedDatetimeMs: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    displayName: jspb.Message.getFieldWithDefault(msg, 6, "")
+    displayName: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    userId: (f = msg.getUserId()) && proto.UserId.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -129,6 +131,11 @@ proto.Persona.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setDisplayName(value);
+      break;
+    case 7:
+      var value = new proto.UserId;
+      reader.readMessage(value,proto.UserId.deserializeBinaryFromReader);
+      msg.setUserId(value);
       break;
     default:
       reader.skipField();
@@ -200,6 +207,14 @@ proto.Persona.serializeBinaryToWriter = function(message, writer) {
     writer.writeString(
       6,
       f
+    );
+  }
+  f = message.getUserId();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      proto.UserId.serializeBinaryToWriter
     );
   }
 };
@@ -307,6 +322,36 @@ proto.Persona.prototype.getDisplayName = function() {
 /** @param {string} value */
 proto.Persona.prototype.setDisplayName = function(value) {
   jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional UserId user_id = 7;
+ * @return {?proto.UserId}
+ */
+proto.Persona.prototype.getUserId = function() {
+  return /** @type{?proto.UserId} */ (
+    jspb.Message.getWrapperField(this, proto.UserId, 7));
+};
+
+
+/** @param {?proto.UserId|undefined} value */
+proto.Persona.prototype.setUserId = function(value) {
+  jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+proto.Persona.prototype.clearUserId = function() {
+  this.setUserId(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.Persona.prototype.hasUserId = function() {
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
