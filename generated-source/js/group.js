@@ -70,7 +70,8 @@ proto.Group.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 4, 0),
     createdDatetimeMs: jspb.Message.getFieldWithDefault(msg, 5, 0),
     modifiedDatetimeMs: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    displayName: jspb.Message.getFieldWithDefault(msg, 7, "")
+    displayName: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -135,6 +136,10 @@ proto.Group.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setDisplayName(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
       break;
     default:
       reader.skipField();
@@ -212,6 +217,13 @@ proto.Group.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -335,6 +347,21 @@ proto.Group.prototype.getDisplayName = function() {
 /** @param {string} value */
 proto.Group.prototype.setDisplayName = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string description = 8;
+ * @return {string}
+ */
+proto.Group.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/** @param {string} value */
+proto.Group.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

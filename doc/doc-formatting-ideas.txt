@@ -1,0 +1,13 @@
+
+temporary doc to capture some notions. 
+
+documents should support markdown or html5
+
+use template braces notation to embed messages or do other interesing things
+
+e.g., {{ messageIds('xxx','yyy','zzz') }}
+
+or maybe {{ messagesWhere({a='xxx',b='yyy'}) }}
+
+etc.
+

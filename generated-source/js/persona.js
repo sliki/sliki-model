@@ -67,10 +67,11 @@ proto.Persona.toObject = function(includeInstance, msg) {
     personaId: (f = msg.getPersonaId()) && proto.PersonaId.toObject(includeInstance, f),
     personaType: jspb.Message.getFieldWithDefault(msg, 2, 0),
     status: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    createdDatetimeMs: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    modifiedDatetimeMs: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    displayName: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    userId: (f = msg.getUserId()) && proto.UserId.toObject(includeInstance, f)
+    userId: (f = msg.getUserId()) && proto.UserId.toObject(includeInstance, f),
+    createdDatetimeMs: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    modifiedDatetimeMs: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    displayName: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -121,21 +122,25 @@ proto.Persona.deserializeBinaryFromReader = function(msg, reader) {
       msg.setStatus(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setCreatedDatetimeMs(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setModifiedDatetimeMs(value);
-      break;
-    case 6:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setDisplayName(value);
-      break;
-    case 7:
       var value = new proto.UserId;
       reader.readMessage(value,proto.UserId.deserializeBinaryFromReader);
       msg.setUserId(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setCreatedDatetimeMs(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setModifiedDatetimeMs(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDisplayName(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
       break;
     default:
       reader.skipField();
@@ -188,33 +193,40 @@ proto.Persona.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCreatedDatetimeMs();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getUserId();
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
+      f,
+      proto.UserId.serializeBinaryToWriter
     );
   }
-  f = message.getModifiedDatetimeMs();
+  f = message.getCreatedDatetimeMs();
   if (f !== 0) {
     writer.writeInt64(
       5,
       f
     );
   }
-  f = message.getDisplayName();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getModifiedDatetimeMs();
+  if (f !== 0) {
+    writer.writeInt64(
       6,
       f
     );
   }
-  f = message.getUserId();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getDisplayName();
+  if (f.length > 0) {
+    writer.writeString(
       7,
-      f,
-      proto.UserId.serializeBinaryToWriter
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
+      f
     );
   }
 };
@@ -281,63 +293,18 @@ proto.Persona.prototype.setStatus = function(value) {
 
 
 /**
- * optional int64 created_datetime_ms = 4;
- * @return {number}
- */
-proto.Persona.prototype.getCreatedDatetimeMs = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/** @param {number} value */
-proto.Persona.prototype.setCreatedDatetimeMs = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
-};
-
-
-/**
- * optional int64 modified_datetime_ms = 5;
- * @return {number}
- */
-proto.Persona.prototype.getModifiedDatetimeMs = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.Persona.prototype.setModifiedDatetimeMs = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
-};
-
-
-/**
- * optional string display_name = 6;
- * @return {string}
- */
-proto.Persona.prototype.getDisplayName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
-};
-
-
-/** @param {string} value */
-proto.Persona.prototype.setDisplayName = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
-};
-
-
-/**
- * optional UserId user_id = 7;
+ * optional UserId user_id = 4;
  * @return {?proto.UserId}
  */
 proto.Persona.prototype.getUserId = function() {
   return /** @type{?proto.UserId} */ (
-    jspb.Message.getWrapperField(this, proto.UserId, 7));
+    jspb.Message.getWrapperField(this, proto.UserId, 4));
 };
 
 
 /** @param {?proto.UserId|undefined} value */
 proto.Persona.prototype.setUserId = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
+  jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -351,7 +318,67 @@ proto.Persona.prototype.clearUserId = function() {
  * @return {!boolean}
  */
 proto.Persona.prototype.hasUserId = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional int64 created_datetime_ms = 5;
+ * @return {number}
+ */
+proto.Persona.prototype.getCreatedDatetimeMs = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.Persona.prototype.setCreatedDatetimeMs = function(value) {
+  jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional int64 modified_datetime_ms = 6;
+ * @return {number}
+ */
+proto.Persona.prototype.getModifiedDatetimeMs = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.Persona.prototype.setModifiedDatetimeMs = function(value) {
+  jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional string display_name = 7;
+ * @return {string}
+ */
+proto.Persona.prototype.getDisplayName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/** @param {string} value */
+proto.Persona.prototype.setDisplayName = function(value) {
+  jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string description = 8;
+ * @return {string}
+ */
+proto.Persona.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/** @param {string} value */
+proto.Persona.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

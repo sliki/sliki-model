@@ -72,6 +72,7 @@ proto.User.toObject = function(includeInstance, msg) {
     givenName: jspb.Message.getFieldWithDefault(msg, 6, ""),
     familyName: jspb.Message.getFieldWithDefault(msg, 7, ""),
     displayName: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 9, ""),
     defaultPersonaId: (f = msg.getDefaultPersonaId()) && proto.PersonaId.toObject(includeInstance, f)
   };
 
@@ -143,6 +144,10 @@ proto.User.deserializeBinaryFromReader = function(msg, reader) {
       msg.setDisplayName(value);
       break;
     case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 10:
       var value = new proto.PersonaId;
       reader.readMessage(value,proto.PersonaId.deserializeBinaryFromReader);
       msg.setDefaultPersonaId(value);
@@ -233,10 +238,17 @@ proto.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
+    );
+  }
   f = message.getDefaultPersonaId();
   if (f != null) {
     writer.writeMessage(
-      9,
+      10,
       f,
       proto.PersonaId.serializeBinaryToWriter
     );
@@ -380,18 +392,33 @@ proto.User.prototype.setDisplayName = function(value) {
 
 
 /**
- * optional PersonaId default_persona_id = 9;
+ * optional string description = 9;
+ * @return {string}
+ */
+proto.User.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/** @param {string} value */
+proto.User.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional PersonaId default_persona_id = 10;
  * @return {?proto.PersonaId}
  */
 proto.User.prototype.getDefaultPersonaId = function() {
   return /** @type{?proto.PersonaId} */ (
-    jspb.Message.getWrapperField(this, proto.PersonaId, 9));
+    jspb.Message.getWrapperField(this, proto.PersonaId, 10));
 };
 
 
 /** @param {?proto.PersonaId|undefined} value */
 proto.User.prototype.setDefaultPersonaId = function(value) {
-  jspb.Message.setWrapperField(this, 9, value);
+  jspb.Message.setWrapperField(this, 10, value);
 };
 
 
@@ -405,7 +432,7 @@ proto.User.prototype.clearDefaultPersonaId = function() {
  * @return {!boolean}
  */
 proto.User.prototype.hasDefaultPersonaId = function() {
-  return jspb.Message.getField(this, 9) != null;
+  return jspb.Message.getField(this, 10) != null;
 };
 
 
