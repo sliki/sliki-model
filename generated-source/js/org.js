@@ -206,7 +206,7 @@ proto.Org.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional OrgId Org_id = 1;
+ * optional OrgId org_id = 1;
  * @return {?proto.OrgId}
  */
 proto.Org.prototype.getOrgId = function() {
@@ -236,7 +236,7 @@ proto.Org.prototype.hasOrgId = function() {
 
 
 /**
- * optional OrgType Org_type = 2;
+ * optional OrgType org_type = 2;
  * @return {!proto.OrgType}
  */
 proto.Org.prototype.getOrgType = function() {

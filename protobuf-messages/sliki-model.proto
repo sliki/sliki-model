@@ -83,12 +83,40 @@ enum OrgStatus {
 
 
 message Org {
-  OrgId Org_id                = 1;
-  OrgType Org_type            = 2;
+  OrgId org_id                = 1;
+  OrgType org_type            = 2;
   OrgStatus status            = 3;
   int64 created_datetime_ms   = 4;
   int64 modified_datetime_ms  = 5;
   string display_name         = 6;
+}
+
+message GroupId {
+  bytes binary_uuid = 1;
+}
+
+enum GroupType {
+  GROUP_PERSONAL  = 0;
+  GROUP_ORG       = 1;
+}
+
+enum GroupVisibility {
+  GROUP_PUBLIC   = 0;
+  GROUP_PRIVATE  = 1;
+}
+
+enum GroupStatus {
+  GROUP_ACTIVE  = 0;
+}
+
+message Group {
+  GroupId group_id            = 1;
+  GroupType group_type        = 2;
+  GroupVisibility visibility  = 3;              
+  GroupStatus status          = 4;
+  int64 created_datetime_ms   = 5;
+  int64 modified_datetime_ms  = 6;
+  string display_name         = 7;
 }
 
 message MessageId {
