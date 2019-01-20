@@ -1048,16 +1048,16 @@ public final class SlikiModel {
   public enum MessageStatus
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>MSG_VISIBLE = 0;</code>
+     * <code>MSG_PUBLISHED = 0;</code>
      */
-    MSG_VISIBLE(0),
+    MSG_PUBLISHED(0),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>MSG_VISIBLE = 0;</code>
+     * <code>MSG_PUBLISHED = 0;</code>
      */
-    public static final int MSG_VISIBLE_VALUE = 0;
+    public static final int MSG_PUBLISHED_VALUE = 0;
 
 
     public final int getNumber() {
@@ -1078,7 +1078,7 @@ public final class SlikiModel {
 
     public static MessageStatus forNumber(int value) {
       switch (value) {
-        case 0: return MSG_VISIBLE;
+        case 0: return MSG_PUBLISHED;
         default: return null;
       }
     }
@@ -1129,6 +1129,416 @@ public final class SlikiModel {
     }
 
     // @@protoc_insertion_point(enum_scope:MessageStatus)
+  }
+
+  /**
+   * Protobuf enum {@code MessageVisibility}
+   */
+  public enum MessageVisibility
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>MSG_PUBLIC = 0;</code>
+     */
+    MSG_PUBLIC(0),
+    /**
+     * <code>MSG_ORG_PUBLIC = 1;</code>
+     */
+    MSG_ORG_PUBLIC(1),
+    /**
+     * <code>MSG_SHARED = 2;</code>
+     */
+    MSG_SHARED(2),
+    /**
+     * <code>MSG_PRIVATE = 3;</code>
+     */
+    MSG_PRIVATE(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>MSG_PUBLIC = 0;</code>
+     */
+    public static final int MSG_PUBLIC_VALUE = 0;
+    /**
+     * <code>MSG_ORG_PUBLIC = 1;</code>
+     */
+    public static final int MSG_ORG_PUBLIC_VALUE = 1;
+    /**
+     * <code>MSG_SHARED = 2;</code>
+     */
+    public static final int MSG_SHARED_VALUE = 2;
+    /**
+     * <code>MSG_PRIVATE = 3;</code>
+     */
+    public static final int MSG_PRIVATE_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static MessageVisibility valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static MessageVisibility forNumber(int value) {
+      switch (value) {
+        case 0: return MSG_PUBLIC;
+        case 1: return MSG_ORG_PUBLIC;
+        case 2: return MSG_SHARED;
+        case 3: return MSG_PRIVATE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MessageVisibility>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        MessageVisibility> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MessageVisibility>() {
+            public MessageVisibility findValueByNumber(int number) {
+              return MessageVisibility.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.getDescriptor().getEnumTypes().get(11);
+    }
+
+    private static final MessageVisibility[] VALUES = values();
+
+    public static MessageVisibility valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private MessageVisibility(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:MessageVisibility)
+  }
+
+  /**
+   * Protobuf enum {@code DocType}
+   */
+  public enum DocType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DOC_SIMPLE = 0;</code>
+     */
+    DOC_SIMPLE(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DOC_SIMPLE = 0;</code>
+     */
+    public static final int DOC_SIMPLE_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DocType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DocType forNumber(int value) {
+      switch (value) {
+        case 0: return DOC_SIMPLE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DocType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DocType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DocType>() {
+            public DocType findValueByNumber(int number) {
+              return DocType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.getDescriptor().getEnumTypes().get(12);
+    }
+
+    private static final DocType[] VALUES = values();
+
+    public static DocType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DocType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:DocType)
+  }
+
+  /**
+   * Protobuf enum {@code DocStatus}
+   */
+  public enum DocStatus
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DOC_ACTIVE = 0;</code>
+     */
+    DOC_ACTIVE(0),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DOC_ACTIVE = 0;</code>
+     */
+    public static final int DOC_ACTIVE_VALUE = 0;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DocStatus valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DocStatus forNumber(int value) {
+      switch (value) {
+        case 0: return DOC_ACTIVE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DocStatus>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DocStatus> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DocStatus>() {
+            public DocStatus findValueByNumber(int number) {
+              return DocStatus.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.getDescriptor().getEnumTypes().get(13);
+    }
+
+    private static final DocStatus[] VALUES = values();
+
+    public static DocStatus valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DocStatus(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:DocStatus)
+  }
+
+  /**
+   * Protobuf enum {@code DocVisibility}
+   */
+  public enum DocVisibility
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DOC_PUBLIC = 0;</code>
+     */
+    DOC_PUBLIC(0),
+    /**
+     * <code>DOC_ORG_PUBLIC = 1;</code>
+     */
+    DOC_ORG_PUBLIC(1),
+    /**
+     * <code>DOC_SHARED = 2;</code>
+     */
+    DOC_SHARED(2),
+    /**
+     * <code>DOC_PRIVATE = 3;</code>
+     */
+    DOC_PRIVATE(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DOC_PUBLIC = 0;</code>
+     */
+    public static final int DOC_PUBLIC_VALUE = 0;
+    /**
+     * <code>DOC_ORG_PUBLIC = 1;</code>
+     */
+    public static final int DOC_ORG_PUBLIC_VALUE = 1;
+    /**
+     * <code>DOC_SHARED = 2;</code>
+     */
+    public static final int DOC_SHARED_VALUE = 2;
+    /**
+     * <code>DOC_PRIVATE = 3;</code>
+     */
+    public static final int DOC_PRIVATE_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DocVisibility valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DocVisibility forNumber(int value) {
+      switch (value) {
+        case 0: return DOC_PUBLIC;
+        case 1: return DOC_ORG_PUBLIC;
+        case 2: return DOC_SHARED;
+        case 3: return DOC_PRIVATE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DocVisibility>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DocVisibility> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DocVisibility>() {
+            public DocVisibility findValueByNumber(int number) {
+              return DocVisibility.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return wiki.sliki.model.SlikiModel.getDescriptor().getEnumTypes().get(14);
+    }
+
+    private static final DocVisibility[] VALUES = values();
+
+    public static DocVisibility valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DocVisibility(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:DocVisibility)
   }
 
   public interface UserIdOrBuilder extends
@@ -9106,47 +9516,56 @@ public final class SlikiModel {
     wiki.sliki.model.SlikiModel.MessageStatus getStatus();
 
     /**
-     * <code>int64 created_datetime_ms = 4;</code>
+     * <code>.MessageVisibility visibility = 4;</code>
+     */
+    int getVisibilityValue();
+    /**
+     * <code>.MessageVisibility visibility = 4;</code>
+     */
+    wiki.sliki.model.SlikiModel.MessageVisibility getVisibility();
+
+    /**
+     * <code>int64 created_datetime_ms = 5;</code>
      */
     long getCreatedDatetimeMs();
 
     /**
-     * <code>int64 modified_datetime_ms = 5;</code>
+     * <code>int64 modified_datetime_ms = 6;</code>
      */
     long getModifiedDatetimeMs();
 
     /**
-     * <code>.PersonaId created_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 7;</code>
      */
     boolean hasCreatedPersonaId();
     /**
-     * <code>.PersonaId created_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 7;</code>
      */
     wiki.sliki.model.SlikiModel.PersonaId getCreatedPersonaId();
     /**
-     * <code>.PersonaId created_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 7;</code>
      */
     wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatedPersonaIdOrBuilder();
 
     /**
-     * <code>.OrgId create_org_id = 7;</code>
+     * <code>.OrgId create_org_id = 8;</code>
      */
     boolean hasCreateOrgId();
     /**
-     * <code>.OrgId create_org_id = 7;</code>
+     * <code>.OrgId create_org_id = 8;</code>
      */
     wiki.sliki.model.SlikiModel.OrgId getCreateOrgId();
     /**
-     * <code>.OrgId create_org_id = 7;</code>
+     * <code>.OrgId create_org_id = 8;</code>
      */
     wiki.sliki.model.SlikiModel.OrgIdOrBuilder getCreateOrgIdOrBuilder();
 
     /**
-     * <code>string message_body = 8;</code>
+     * <code>string message_body = 9;</code>
      */
     java.lang.String getMessageBody();
     /**
-     * <code>string message_body = 8;</code>
+     * <code>string message_body = 9;</code>
      */
     com.google.protobuf.ByteString
         getMessageBodyBytes();
@@ -9166,6 +9585,7 @@ public final class SlikiModel {
     private Message() {
       messageType_ = 0;
       status_ = 0;
+      visibility_ = 0;
       createdDatetimeMs_ = 0L;
       modifiedDatetimeMs_ = 0L;
       messageBody_ = "";
@@ -9221,16 +9641,22 @@ public final class SlikiModel {
               break;
             }
             case 32: {
+              int rawValue = input.readEnum();
 
-              createdDatetimeMs_ = input.readInt64();
+              visibility_ = rawValue;
               break;
             }
             case 40: {
 
+              createdDatetimeMs_ = input.readInt64();
+              break;
+            }
+            case 48: {
+
               modifiedDatetimeMs_ = input.readInt64();
               break;
             }
-            case 50: {
+            case 58: {
               wiki.sliki.model.SlikiModel.PersonaId.Builder subBuilder = null;
               if (createdPersonaId_ != null) {
                 subBuilder = createdPersonaId_.toBuilder();
@@ -9243,7 +9669,7 @@ public final class SlikiModel {
 
               break;
             }
-            case 58: {
+            case 66: {
               wiki.sliki.model.SlikiModel.OrgId.Builder subBuilder = null;
               if (createOrgId_ != null) {
                 subBuilder = createOrgId_.toBuilder();
@@ -9256,7 +9682,7 @@ public final class SlikiModel {
 
               break;
             }
-            case 66: {
+            case 74: {
               java.lang.String s = input.readStringRequireUtf8();
 
               messageBody_ = s;
@@ -9349,70 +9775,87 @@ public final class SlikiModel {
       return result == null ? wiki.sliki.model.SlikiModel.MessageStatus.UNRECOGNIZED : result;
     }
 
-    public static final int CREATED_DATETIME_MS_FIELD_NUMBER = 4;
+    public static final int VISIBILITY_FIELD_NUMBER = 4;
+    private int visibility_;
+    /**
+     * <code>.MessageVisibility visibility = 4;</code>
+     */
+    public int getVisibilityValue() {
+      return visibility_;
+    }
+    /**
+     * <code>.MessageVisibility visibility = 4;</code>
+     */
+    public wiki.sliki.model.SlikiModel.MessageVisibility getVisibility() {
+      @SuppressWarnings("deprecation")
+      wiki.sliki.model.SlikiModel.MessageVisibility result = wiki.sliki.model.SlikiModel.MessageVisibility.valueOf(visibility_);
+      return result == null ? wiki.sliki.model.SlikiModel.MessageVisibility.UNRECOGNIZED : result;
+    }
+
+    public static final int CREATED_DATETIME_MS_FIELD_NUMBER = 5;
     private long createdDatetimeMs_;
     /**
-     * <code>int64 created_datetime_ms = 4;</code>
+     * <code>int64 created_datetime_ms = 5;</code>
      */
     public long getCreatedDatetimeMs() {
       return createdDatetimeMs_;
     }
 
-    public static final int MODIFIED_DATETIME_MS_FIELD_NUMBER = 5;
+    public static final int MODIFIED_DATETIME_MS_FIELD_NUMBER = 6;
     private long modifiedDatetimeMs_;
     /**
-     * <code>int64 modified_datetime_ms = 5;</code>
+     * <code>int64 modified_datetime_ms = 6;</code>
      */
     public long getModifiedDatetimeMs() {
       return modifiedDatetimeMs_;
     }
 
-    public static final int CREATED_PERSONA_ID_FIELD_NUMBER = 6;
+    public static final int CREATED_PERSONA_ID_FIELD_NUMBER = 7;
     private wiki.sliki.model.SlikiModel.PersonaId createdPersonaId_;
     /**
-     * <code>.PersonaId created_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 7;</code>
      */
     public boolean hasCreatedPersonaId() {
       return createdPersonaId_ != null;
     }
     /**
-     * <code>.PersonaId created_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 7;</code>
      */
     public wiki.sliki.model.SlikiModel.PersonaId getCreatedPersonaId() {
       return createdPersonaId_ == null ? wiki.sliki.model.SlikiModel.PersonaId.getDefaultInstance() : createdPersonaId_;
     }
     /**
-     * <code>.PersonaId created_persona_id = 6;</code>
+     * <code>.PersonaId created_persona_id = 7;</code>
      */
     public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatedPersonaIdOrBuilder() {
       return getCreatedPersonaId();
     }
 
-    public static final int CREATE_ORG_ID_FIELD_NUMBER = 7;
+    public static final int CREATE_ORG_ID_FIELD_NUMBER = 8;
     private wiki.sliki.model.SlikiModel.OrgId createOrgId_;
     /**
-     * <code>.OrgId create_org_id = 7;</code>
+     * <code>.OrgId create_org_id = 8;</code>
      */
     public boolean hasCreateOrgId() {
       return createOrgId_ != null;
     }
     /**
-     * <code>.OrgId create_org_id = 7;</code>
+     * <code>.OrgId create_org_id = 8;</code>
      */
     public wiki.sliki.model.SlikiModel.OrgId getCreateOrgId() {
       return createOrgId_ == null ? wiki.sliki.model.SlikiModel.OrgId.getDefaultInstance() : createOrgId_;
     }
     /**
-     * <code>.OrgId create_org_id = 7;</code>
+     * <code>.OrgId create_org_id = 8;</code>
      */
     public wiki.sliki.model.SlikiModel.OrgIdOrBuilder getCreateOrgIdOrBuilder() {
       return getCreateOrgId();
     }
 
-    public static final int MESSAGE_BODY_FIELD_NUMBER = 8;
+    public static final int MESSAGE_BODY_FIELD_NUMBER = 9;
     private volatile java.lang.Object messageBody_;
     /**
-     * <code>string message_body = 8;</code>
+     * <code>string message_body = 9;</code>
      */
     public java.lang.String getMessageBody() {
       java.lang.Object ref = messageBody_;
@@ -9427,7 +9870,7 @@ public final class SlikiModel {
       }
     }
     /**
-     * <code>string message_body = 8;</code>
+     * <code>string message_body = 9;</code>
      */
     public com.google.protobuf.ByteString
         getMessageBodyBytes() {
@@ -9463,23 +9906,26 @@ public final class SlikiModel {
       if (messageType_ != wiki.sliki.model.SlikiModel.MessageType.MSG_SIMPLE.getNumber()) {
         output.writeEnum(2, messageType_);
       }
-      if (status_ != wiki.sliki.model.SlikiModel.MessageStatus.MSG_VISIBLE.getNumber()) {
+      if (status_ != wiki.sliki.model.SlikiModel.MessageStatus.MSG_PUBLISHED.getNumber()) {
         output.writeEnum(3, status_);
       }
+      if (visibility_ != wiki.sliki.model.SlikiModel.MessageVisibility.MSG_PUBLIC.getNumber()) {
+        output.writeEnum(4, visibility_);
+      }
       if (createdDatetimeMs_ != 0L) {
-        output.writeInt64(4, createdDatetimeMs_);
+        output.writeInt64(5, createdDatetimeMs_);
       }
       if (modifiedDatetimeMs_ != 0L) {
-        output.writeInt64(5, modifiedDatetimeMs_);
+        output.writeInt64(6, modifiedDatetimeMs_);
       }
       if (createdPersonaId_ != null) {
-        output.writeMessage(6, getCreatedPersonaId());
+        output.writeMessage(7, getCreatedPersonaId());
       }
       if (createOrgId_ != null) {
-        output.writeMessage(7, getCreateOrgId());
+        output.writeMessage(8, getCreateOrgId());
       }
       if (!getMessageBodyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, messageBody_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, messageBody_);
       }
       unknownFields.writeTo(output);
     }
@@ -9498,28 +9944,32 @@ public final class SlikiModel {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, messageType_);
       }
-      if (status_ != wiki.sliki.model.SlikiModel.MessageStatus.MSG_VISIBLE.getNumber()) {
+      if (status_ != wiki.sliki.model.SlikiModel.MessageStatus.MSG_PUBLISHED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, status_);
       }
+      if (visibility_ != wiki.sliki.model.SlikiModel.MessageVisibility.MSG_PUBLIC.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, visibility_);
+      }
       if (createdDatetimeMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, createdDatetimeMs_);
+          .computeInt64Size(5, createdDatetimeMs_);
       }
       if (modifiedDatetimeMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, modifiedDatetimeMs_);
+          .computeInt64Size(6, modifiedDatetimeMs_);
       }
       if (createdPersonaId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getCreatedPersonaId());
+          .computeMessageSize(7, getCreatedPersonaId());
       }
       if (createOrgId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, getCreateOrgId());
+          .computeMessageSize(8, getCreateOrgId());
       }
       if (!getMessageBodyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, messageBody_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, messageBody_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9544,6 +9994,7 @@ public final class SlikiModel {
       }
       result = result && messageType_ == other.messageType_;
       result = result && status_ == other.status_;
+      result = result && visibility_ == other.visibility_;
       result = result && (getCreatedDatetimeMs()
           == other.getCreatedDatetimeMs());
       result = result && (getModifiedDatetimeMs()
@@ -9579,6 +10030,8 @@ public final class SlikiModel {
       hash = (53 * hash) + messageType_;
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
+      hash = (37 * hash) + VISIBILITY_FIELD_NUMBER;
+      hash = (53 * hash) + visibility_;
       hash = (37 * hash) + CREATED_DATETIME_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreatedDatetimeMs());
@@ -9738,6 +10191,8 @@ public final class SlikiModel {
 
         status_ = 0;
 
+        visibility_ = 0;
+
         createdDatetimeMs_ = 0L;
 
         modifiedDatetimeMs_ = 0L;
@@ -9789,6 +10244,7 @@ public final class SlikiModel {
         }
         result.messageType_ = messageType_;
         result.status_ = status_;
+        result.visibility_ = visibility_;
         result.createdDatetimeMs_ = createdDatetimeMs_;
         result.modifiedDatetimeMs_ = modifiedDatetimeMs_;
         if (createdPersonaIdBuilder_ == null) {
@@ -9858,6 +10314,9 @@ public final class SlikiModel {
         }
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
+        }
+        if (other.visibility_ != 0) {
+          setVisibilityValue(other.getVisibilityValue());
         }
         if (other.getCreatedDatetimeMs() != 0L) {
           setCreatedDatetimeMs(other.getCreatedDatetimeMs());
@@ -10111,15 +10570,60 @@ public final class SlikiModel {
         return this;
       }
 
+      private int visibility_ = 0;
+      /**
+       * <code>.MessageVisibility visibility = 4;</code>
+       */
+      public int getVisibilityValue() {
+        return visibility_;
+      }
+      /**
+       * <code>.MessageVisibility visibility = 4;</code>
+       */
+      public Builder setVisibilityValue(int value) {
+        visibility_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.MessageVisibility visibility = 4;</code>
+       */
+      public wiki.sliki.model.SlikiModel.MessageVisibility getVisibility() {
+        @SuppressWarnings("deprecation")
+        wiki.sliki.model.SlikiModel.MessageVisibility result = wiki.sliki.model.SlikiModel.MessageVisibility.valueOf(visibility_);
+        return result == null ? wiki.sliki.model.SlikiModel.MessageVisibility.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.MessageVisibility visibility = 4;</code>
+       */
+      public Builder setVisibility(wiki.sliki.model.SlikiModel.MessageVisibility value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        visibility_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.MessageVisibility visibility = 4;</code>
+       */
+      public Builder clearVisibility() {
+        
+        visibility_ = 0;
+        onChanged();
+        return this;
+      }
+
       private long createdDatetimeMs_ ;
       /**
-       * <code>int64 created_datetime_ms = 4;</code>
+       * <code>int64 created_datetime_ms = 5;</code>
        */
       public long getCreatedDatetimeMs() {
         return createdDatetimeMs_;
       }
       /**
-       * <code>int64 created_datetime_ms = 4;</code>
+       * <code>int64 created_datetime_ms = 5;</code>
        */
       public Builder setCreatedDatetimeMs(long value) {
         
@@ -10128,7 +10632,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>int64 created_datetime_ms = 4;</code>
+       * <code>int64 created_datetime_ms = 5;</code>
        */
       public Builder clearCreatedDatetimeMs() {
         
@@ -10139,13 +10643,13 @@ public final class SlikiModel {
 
       private long modifiedDatetimeMs_ ;
       /**
-       * <code>int64 modified_datetime_ms = 5;</code>
+       * <code>int64 modified_datetime_ms = 6;</code>
        */
       public long getModifiedDatetimeMs() {
         return modifiedDatetimeMs_;
       }
       /**
-       * <code>int64 modified_datetime_ms = 5;</code>
+       * <code>int64 modified_datetime_ms = 6;</code>
        */
       public Builder setModifiedDatetimeMs(long value) {
         
@@ -10154,7 +10658,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>int64 modified_datetime_ms = 5;</code>
+       * <code>int64 modified_datetime_ms = 6;</code>
        */
       public Builder clearModifiedDatetimeMs() {
         
@@ -10167,13 +10671,13 @@ public final class SlikiModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> createdPersonaIdBuilder_;
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public boolean hasCreatedPersonaId() {
         return createdPersonaIdBuilder_ != null || createdPersonaId_ != null;
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public wiki.sliki.model.SlikiModel.PersonaId getCreatedPersonaId() {
         if (createdPersonaIdBuilder_ == null) {
@@ -10183,7 +10687,7 @@ public final class SlikiModel {
         }
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public Builder setCreatedPersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
         if (createdPersonaIdBuilder_ == null) {
@@ -10199,7 +10703,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public Builder setCreatedPersonaId(
           wiki.sliki.model.SlikiModel.PersonaId.Builder builderForValue) {
@@ -10213,7 +10717,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public Builder mergeCreatedPersonaId(wiki.sliki.model.SlikiModel.PersonaId value) {
         if (createdPersonaIdBuilder_ == null) {
@@ -10231,7 +10735,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public Builder clearCreatedPersonaId() {
         if (createdPersonaIdBuilder_ == null) {
@@ -10245,7 +10749,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public wiki.sliki.model.SlikiModel.PersonaId.Builder getCreatedPersonaIdBuilder() {
         
@@ -10253,7 +10757,7 @@ public final class SlikiModel {
         return getCreatedPersonaIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       public wiki.sliki.model.SlikiModel.PersonaIdOrBuilder getCreatedPersonaIdOrBuilder() {
         if (createdPersonaIdBuilder_ != null) {
@@ -10264,7 +10768,7 @@ public final class SlikiModel {
         }
       }
       /**
-       * <code>.PersonaId created_persona_id = 6;</code>
+       * <code>.PersonaId created_persona_id = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           wiki.sliki.model.SlikiModel.PersonaId, wiki.sliki.model.SlikiModel.PersonaId.Builder, wiki.sliki.model.SlikiModel.PersonaIdOrBuilder> 
@@ -10284,13 +10788,13 @@ public final class SlikiModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           wiki.sliki.model.SlikiModel.OrgId, wiki.sliki.model.SlikiModel.OrgId.Builder, wiki.sliki.model.SlikiModel.OrgIdOrBuilder> createOrgIdBuilder_;
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public boolean hasCreateOrgId() {
         return createOrgIdBuilder_ != null || createOrgId_ != null;
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public wiki.sliki.model.SlikiModel.OrgId getCreateOrgId() {
         if (createOrgIdBuilder_ == null) {
@@ -10300,7 +10804,7 @@ public final class SlikiModel {
         }
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public Builder setCreateOrgId(wiki.sliki.model.SlikiModel.OrgId value) {
         if (createOrgIdBuilder_ == null) {
@@ -10316,7 +10820,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public Builder setCreateOrgId(
           wiki.sliki.model.SlikiModel.OrgId.Builder builderForValue) {
@@ -10330,7 +10834,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public Builder mergeCreateOrgId(wiki.sliki.model.SlikiModel.OrgId value) {
         if (createOrgIdBuilder_ == null) {
@@ -10348,7 +10852,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public Builder clearCreateOrgId() {
         if (createOrgIdBuilder_ == null) {
@@ -10362,7 +10866,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public wiki.sliki.model.SlikiModel.OrgId.Builder getCreateOrgIdBuilder() {
         
@@ -10370,7 +10874,7 @@ public final class SlikiModel {
         return getCreateOrgIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       public wiki.sliki.model.SlikiModel.OrgIdOrBuilder getCreateOrgIdOrBuilder() {
         if (createOrgIdBuilder_ != null) {
@@ -10381,7 +10885,7 @@ public final class SlikiModel {
         }
       }
       /**
-       * <code>.OrgId create_org_id = 7;</code>
+       * <code>.OrgId create_org_id = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           wiki.sliki.model.SlikiModel.OrgId, wiki.sliki.model.SlikiModel.OrgId.Builder, wiki.sliki.model.SlikiModel.OrgIdOrBuilder> 
@@ -10399,7 +10903,7 @@ public final class SlikiModel {
 
       private java.lang.Object messageBody_ = "";
       /**
-       * <code>string message_body = 8;</code>
+       * <code>string message_body = 9;</code>
        */
       public java.lang.String getMessageBody() {
         java.lang.Object ref = messageBody_;
@@ -10414,7 +10918,7 @@ public final class SlikiModel {
         }
       }
       /**
-       * <code>string message_body = 8;</code>
+       * <code>string message_body = 9;</code>
        */
       public com.google.protobuf.ByteString
           getMessageBodyBytes() {
@@ -10430,7 +10934,7 @@ public final class SlikiModel {
         }
       }
       /**
-       * <code>string message_body = 8;</code>
+       * <code>string message_body = 9;</code>
        */
       public Builder setMessageBody(
           java.lang.String value) {
@@ -10443,7 +10947,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>string message_body = 8;</code>
+       * <code>string message_body = 9;</code>
        */
       public Builder clearMessageBody() {
         
@@ -10452,7 +10956,7 @@ public final class SlikiModel {
         return this;
       }
       /**
-       * <code>string message_body = 8;</code>
+       * <code>string message_body = 9;</code>
        */
       public Builder setMessageBodyBytes(
           com.google.protobuf.ByteString value) {
@@ -11814,6 +12318,33 @@ public final class SlikiModel {
      * <code>.DocId doc_id = 1;</code>
      */
     wiki.sliki.model.SlikiModel.DocIdOrBuilder getDocIdOrBuilder();
+
+    /**
+     * <code>.DocType doc_type = 2;</code>
+     */
+    int getDocTypeValue();
+    /**
+     * <code>.DocType doc_type = 2;</code>
+     */
+    wiki.sliki.model.SlikiModel.DocType getDocType();
+
+    /**
+     * <code>.DocStatus status = 3;</code>
+     */
+    int getStatusValue();
+    /**
+     * <code>.DocStatus status = 3;</code>
+     */
+    wiki.sliki.model.SlikiModel.DocStatus getStatus();
+
+    /**
+     * <code>.DocVisibility visibility = 4;</code>
+     */
+    int getVisibilityValue();
+    /**
+     * <code>.DocVisibility visibility = 4;</code>
+     */
+    wiki.sliki.model.SlikiModel.DocVisibility getVisibility();
   }
   /**
    * Protobuf type {@code Doc}
@@ -11828,6 +12359,9 @@ public final class SlikiModel {
       super(builder);
     }
     private Doc() {
+      docType_ = 0;
+      status_ = 0;
+      visibility_ = 0;
     }
 
     @java.lang.Override
@@ -11865,6 +12399,24 @@ public final class SlikiModel {
                 docId_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              docType_ = rawValue;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              status_ = rawValue;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              visibility_ = rawValue;
               break;
             }
             default: {
@@ -11920,6 +12472,57 @@ public final class SlikiModel {
       return getDocId();
     }
 
+    public static final int DOC_TYPE_FIELD_NUMBER = 2;
+    private int docType_;
+    /**
+     * <code>.DocType doc_type = 2;</code>
+     */
+    public int getDocTypeValue() {
+      return docType_;
+    }
+    /**
+     * <code>.DocType doc_type = 2;</code>
+     */
+    public wiki.sliki.model.SlikiModel.DocType getDocType() {
+      @SuppressWarnings("deprecation")
+      wiki.sliki.model.SlikiModel.DocType result = wiki.sliki.model.SlikiModel.DocType.valueOf(docType_);
+      return result == null ? wiki.sliki.model.SlikiModel.DocType.UNRECOGNIZED : result;
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 3;
+    private int status_;
+    /**
+     * <code>.DocStatus status = 3;</code>
+     */
+    public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <code>.DocStatus status = 3;</code>
+     */
+    public wiki.sliki.model.SlikiModel.DocStatus getStatus() {
+      @SuppressWarnings("deprecation")
+      wiki.sliki.model.SlikiModel.DocStatus result = wiki.sliki.model.SlikiModel.DocStatus.valueOf(status_);
+      return result == null ? wiki.sliki.model.SlikiModel.DocStatus.UNRECOGNIZED : result;
+    }
+
+    public static final int VISIBILITY_FIELD_NUMBER = 4;
+    private int visibility_;
+    /**
+     * <code>.DocVisibility visibility = 4;</code>
+     */
+    public int getVisibilityValue() {
+      return visibility_;
+    }
+    /**
+     * <code>.DocVisibility visibility = 4;</code>
+     */
+    public wiki.sliki.model.SlikiModel.DocVisibility getVisibility() {
+      @SuppressWarnings("deprecation")
+      wiki.sliki.model.SlikiModel.DocVisibility result = wiki.sliki.model.SlikiModel.DocVisibility.valueOf(visibility_);
+      return result == null ? wiki.sliki.model.SlikiModel.DocVisibility.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11937,6 +12540,15 @@ public final class SlikiModel {
       if (docId_ != null) {
         output.writeMessage(1, getDocId());
       }
+      if (docType_ != wiki.sliki.model.SlikiModel.DocType.DOC_SIMPLE.getNumber()) {
+        output.writeEnum(2, docType_);
+      }
+      if (status_ != wiki.sliki.model.SlikiModel.DocStatus.DOC_ACTIVE.getNumber()) {
+        output.writeEnum(3, status_);
+      }
+      if (visibility_ != wiki.sliki.model.SlikiModel.DocVisibility.DOC_PUBLIC.getNumber()) {
+        output.writeEnum(4, visibility_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11949,6 +12561,18 @@ public final class SlikiModel {
       if (docId_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getDocId());
+      }
+      if (docType_ != wiki.sliki.model.SlikiModel.DocType.DOC_SIMPLE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, docType_);
+      }
+      if (status_ != wiki.sliki.model.SlikiModel.DocStatus.DOC_ACTIVE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, status_);
+      }
+      if (visibility_ != wiki.sliki.model.SlikiModel.DocVisibility.DOC_PUBLIC.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, visibility_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11971,6 +12595,9 @@ public final class SlikiModel {
         result = result && getDocId()
             .equals(other.getDocId());
       }
+      result = result && docType_ == other.docType_;
+      result = result && status_ == other.status_;
+      result = result && visibility_ == other.visibility_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -11986,6 +12613,12 @@ public final class SlikiModel {
         hash = (37 * hash) + DOC_ID_FIELD_NUMBER;
         hash = (53 * hash) + getDocId().hashCode();
       }
+      hash = (37 * hash) + DOC_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + docType_;
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
+      hash = (37 * hash) + VISIBILITY_FIELD_NUMBER;
+      hash = (53 * hash) + visibility_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12125,6 +12758,12 @@ public final class SlikiModel {
           docId_ = null;
           docIdBuilder_ = null;
         }
+        docType_ = 0;
+
+        status_ = 0;
+
+        visibility_ = 0;
+
         return this;
       }
 
@@ -12156,6 +12795,9 @@ public final class SlikiModel {
         } else {
           result.docId_ = docIdBuilder_.build();
         }
+        result.docType_ = docType_;
+        result.status_ = status_;
+        result.visibility_ = visibility_;
         onBuilt();
         return result;
       }
@@ -12206,6 +12848,15 @@ public final class SlikiModel {
         if (other == wiki.sliki.model.SlikiModel.Doc.getDefaultInstance()) return this;
         if (other.hasDocId()) {
           mergeDocId(other.getDocId());
+        }
+        if (other.docType_ != 0) {
+          setDocTypeValue(other.getDocTypeValue());
+        }
+        if (other.status_ != 0) {
+          setStatusValue(other.getStatusValue());
+        }
+        if (other.visibility_ != 0) {
+          setVisibilityValue(other.getVisibilityValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -12351,6 +13002,141 @@ public final class SlikiModel {
           docId_ = null;
         }
         return docIdBuilder_;
+      }
+
+      private int docType_ = 0;
+      /**
+       * <code>.DocType doc_type = 2;</code>
+       */
+      public int getDocTypeValue() {
+        return docType_;
+      }
+      /**
+       * <code>.DocType doc_type = 2;</code>
+       */
+      public Builder setDocTypeValue(int value) {
+        docType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DocType doc_type = 2;</code>
+       */
+      public wiki.sliki.model.SlikiModel.DocType getDocType() {
+        @SuppressWarnings("deprecation")
+        wiki.sliki.model.SlikiModel.DocType result = wiki.sliki.model.SlikiModel.DocType.valueOf(docType_);
+        return result == null ? wiki.sliki.model.SlikiModel.DocType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.DocType doc_type = 2;</code>
+       */
+      public Builder setDocType(wiki.sliki.model.SlikiModel.DocType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        docType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DocType doc_type = 2;</code>
+       */
+      public Builder clearDocType() {
+        
+        docType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int status_ = 0;
+      /**
+       * <code>.DocStatus status = 3;</code>
+       */
+      public int getStatusValue() {
+        return status_;
+      }
+      /**
+       * <code>.DocStatus status = 3;</code>
+       */
+      public Builder setStatusValue(int value) {
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DocStatus status = 3;</code>
+       */
+      public wiki.sliki.model.SlikiModel.DocStatus getStatus() {
+        @SuppressWarnings("deprecation")
+        wiki.sliki.model.SlikiModel.DocStatus result = wiki.sliki.model.SlikiModel.DocStatus.valueOf(status_);
+        return result == null ? wiki.sliki.model.SlikiModel.DocStatus.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.DocStatus status = 3;</code>
+       */
+      public Builder setStatus(wiki.sliki.model.SlikiModel.DocStatus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        status_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DocStatus status = 3;</code>
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int visibility_ = 0;
+      /**
+       * <code>.DocVisibility visibility = 4;</code>
+       */
+      public int getVisibilityValue() {
+        return visibility_;
+      }
+      /**
+       * <code>.DocVisibility visibility = 4;</code>
+       */
+      public Builder setVisibilityValue(int value) {
+        visibility_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DocVisibility visibility = 4;</code>
+       */
+      public wiki.sliki.model.SlikiModel.DocVisibility getVisibility() {
+        @SuppressWarnings("deprecation")
+        wiki.sliki.model.SlikiModel.DocVisibility result = wiki.sliki.model.SlikiModel.DocVisibility.valueOf(visibility_);
+        return result == null ? wiki.sliki.model.SlikiModel.DocVisibility.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.DocVisibility visibility = 4;</code>
+       */
+      public Builder setVisibility(wiki.sliki.model.SlikiModel.DocVisibility value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        visibility_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.DocVisibility visibility = 4;</code>
+       */
+      public Builder clearVisibility() {
+        
+        visibility_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17049,49 +17835,58 @@ public final class SlikiModel {
       "ed_datetime_ms\030\005 \001(\003\022\034\n\024modified_datetim" +
       "e_ms\030\006 \001(\003\022\024\n\014display_name\030\007 \001(\t\022\023\n\013desc" +
       "ription\030\010 \001(\t\" \n\tMessageId\022\023\n\013binary_uui" +
-      "d\030\001 \001(\014\"\205\002\n\007Message\022\036\n\nmessage_id\030\001 \001(\0132" +
+      "d\030\001 \001(\014\"\255\002\n\007Message\022\036\n\nmessage_id\030\001 \001(\0132" +
       "\n.MessageId\022\"\n\014message_type\030\002 \001(\0162\014.Mess" +
       "ageType\022\036\n\006status\030\003 \001(\0162\016.MessageStatus\022" +
-      "\033\n\023created_datetime_ms\030\004 \001(\003\022\034\n\024modified" +
-      "_datetime_ms\030\005 \001(\003\022&\n\022created_persona_id" +
-      "\030\006 \001(\0132\n.PersonaId\022\035\n\rcreate_org_id\030\007 \001(" +
-      "\0132\006.OrgId\022\024\n\014message_body\030\010 \001(\t\"Y\n\nMessa" +
+      "&\n\nvisibility\030\004 \001(\0162\022.MessageVisibility\022" +
+      "\033\n\023created_datetime_ms\030\005 \001(\003\022\034\n\024modified" +
+      "_datetime_ms\030\006 \001(\003\022&\n\022created_persona_id" +
+      "\030\007 \001(\0132\n.PersonaId\022\035\n\rcreate_org_id\030\010 \001(" +
+      "\0132\006.OrgId\022\024\n\014message_body\030\t \001(\t\"Y\n\nMessa" +
       "geRef\022\"\n\016ref_message_id\030\001 \001(\0132\n.MessageI" +
       "d\022\'\n\023original_message_id\030\002 \001(\0132\n.Message" +
-      "Id\"\034\n\005DocId\022\023\n\013binary_uuid\030\001 \001(\014\"\035\n\003Doc\022" +
-      "\026\n\006doc_id\030\001 \001(\0132\006.DocId\"\313\002\n\004Auth\022\030\n\007user" +
-      "_id\030\001 \001(\0132\007.UserId\022\"\n\010personas\030\002 \003(\0132\020.A" +
-      "uth.PersonaRef\022\033\n\023created_datetime_ms\030\003 " +
-      "\001(\003\022\034\n\024modified_datetime_ms\030\004 \001(\003\022\031\n\021log" +
-      "in_datetime_ms\030\006 \001(\003\022\030\n\020login_ip_address" +
-      "\030\007 \001(\014\032\224\001\n\nPersonaRef\022\020\n\010ext_name\030\001 \001(\t\022" +
-      "\036\n\npersona_id\030\002 \001(\0132\n.PersonaId\022\033\n\023creat" +
-      "ed_datetime_ms\030\003 \001(\003\022\034\n\024modified_datetim" +
-      "e_ms\030\004 \001(\003\022\031\n\021login_datetime_ms\030\005 \001(\003\"P\n" +
-      "\007AuthRec\022\016\n\006ext_id\030\001 \001(\t\022\017\n\007pw_hash\030\002 \001(" +
-      "\014\022\017\n\007pw_salt\030\003 \001(\014\022\023\n\004auth\030\004 \001(\0132\005.Auth\"" +
-      " \n\tSessionId\022\023\n\013binary_uuid\030\001 \001(\014\"\200\001\n\007Se" +
-      "ssion\022\036\n\nsession_id\030\001 \001(\0132\n.SessionId\022\036\n" +
-      "\npersona_id\030\002 \001(\0132\n.PersonaId\022\031\n\021start_d" +
-      "atetime_ms\030\003 \001(\003\022\032\n\022expire_datetime_ms\030\004" +
-      " \001(\003*1\n\010UserType\022\021\n\rUSER_PERSONAL\020\000\022\022\n\016U" +
-      "SER_ORG_BASED\020\001*F\n\nUserStatus\022\017\n\013USER_AC" +
-      "TIVE\020\000\022\023\n\017USER_UNVERIFIED\020\001\022\022\n\016USER_SUSP" +
-      "ENDED\020\002*\"\n\013PersonaType\022\023\n\017PERSONA_REGULA" +
-      "R\020\000*#\n\rPersonaStatus\022\022\n\016PERSONA_ACTIVE\020\000" +
-      "*\316\001\n\007OrgType\022\030\n\024ORG_NON_PROFIT_OTHER\020\000\022\036" +
-      "\n\032ORG_NON_PROFIT_EDUCATIONAL\020\001\022\034\n\030ORG_NO" +
-      "N_PROFIT_RELIGIOUS\020\002\022\035\n\031ORG_NON_PROFIT_G" +
-      "OVERNMENT\020\003\022\030\n\024ORG_FOR_PROFIT_OTHER\020\004\022\030\n" +
-      "\024ORG_FOR_PROFIT_SMALL\020\005\022\030\n\024ORG_FOR_PROFI" +
-      "T_LARGE\020\006*\033\n\tOrgStatus\022\016\n\nORG_ACTIVE\020\000*." +
-      "\n\tGroupType\022\022\n\016GROUP_PERSONAL\020\000\022\r\n\tGROUP" +
-      "_ORG\020\001*6\n\017GroupVisibility\022\020\n\014GROUP_PUBLI" +
-      "C\020\000\022\021\n\rGROUP_PRIVATE\020\001*\037\n\013GroupStatus\022\020\n" +
-      "\014GROUP_ACTIVE\020\000*-\n\013MessageType\022\016\n\nMSG_SI" +
-      "MPLE\020\000\022\016\n\nMSG_THREAD\020\001* \n\rMessageStatus\022" +
-      "\017\n\013MSG_VISIBLE\020\000B\022\n\020wiki.sliki.modelb\006pr" +
-      "oto3"
+      "Id\"\034\n\005DocId\022\023\n\013binary_uuid\030\001 \001(\014\"y\n\003Doc\022" +
+      "\026\n\006doc_id\030\001 \001(\0132\006.DocId\022\032\n\010doc_type\030\002 \001(" +
+      "\0162\010.DocType\022\032\n\006status\030\003 \001(\0162\n.DocStatus\022" +
+      "\"\n\nvisibility\030\004 \001(\0162\016.DocVisibility\"\313\002\n\004" +
+      "Auth\022\030\n\007user_id\030\001 \001(\0132\007.UserId\022\"\n\010person" +
+      "as\030\002 \003(\0132\020.Auth.PersonaRef\022\033\n\023created_da" +
+      "tetime_ms\030\003 \001(\003\022\034\n\024modified_datetime_ms\030" +
+      "\004 \001(\003\022\031\n\021login_datetime_ms\030\006 \001(\003\022\030\n\020logi" +
+      "n_ip_address\030\007 \001(\014\032\224\001\n\nPersonaRef\022\020\n\010ext" +
+      "_name\030\001 \001(\t\022\036\n\npersona_id\030\002 \001(\0132\n.Person" +
+      "aId\022\033\n\023created_datetime_ms\030\003 \001(\003\022\034\n\024modi" +
+      "fied_datetime_ms\030\004 \001(\003\022\031\n\021login_datetime" +
+      "_ms\030\005 \001(\003\"P\n\007AuthRec\022\016\n\006ext_id\030\001 \001(\t\022\017\n\007" +
+      "pw_hash\030\002 \001(\014\022\017\n\007pw_salt\030\003 \001(\014\022\023\n\004auth\030\004" +
+      " \001(\0132\005.Auth\" \n\tSessionId\022\023\n\013binary_uuid\030" +
+      "\001 \001(\014\"\200\001\n\007Session\022\036\n\nsession_id\030\001 \001(\0132\n." +
+      "SessionId\022\036\n\npersona_id\030\002 \001(\0132\n.PersonaI" +
+      "d\022\031\n\021start_datetime_ms\030\003 \001(\003\022\032\n\022expire_d" +
+      "atetime_ms\030\004 \001(\003*1\n\010UserType\022\021\n\rUSER_PER" +
+      "SONAL\020\000\022\022\n\016USER_ORG_BASED\020\001*F\n\nUserStatu" +
+      "s\022\017\n\013USER_ACTIVE\020\000\022\023\n\017USER_UNVERIFIED\020\001\022" +
+      "\022\n\016USER_SUSPENDED\020\002*\"\n\013PersonaType\022\023\n\017PE" +
+      "RSONA_REGULAR\020\000*#\n\rPersonaStatus\022\022\n\016PERS" +
+      "ONA_ACTIVE\020\000*\316\001\n\007OrgType\022\030\n\024ORG_NON_PROF" +
+      "IT_OTHER\020\000\022\036\n\032ORG_NON_PROFIT_EDUCATIONAL" +
+      "\020\001\022\034\n\030ORG_NON_PROFIT_RELIGIOUS\020\002\022\035\n\031ORG_" +
+      "NON_PROFIT_GOVERNMENT\020\003\022\030\n\024ORG_FOR_PROFI" +
+      "T_OTHER\020\004\022\030\n\024ORG_FOR_PROFIT_SMALL\020\005\022\030\n\024O" +
+      "RG_FOR_PROFIT_LARGE\020\006*\033\n\tOrgStatus\022\016\n\nOR" +
+      "G_ACTIVE\020\000*.\n\tGroupType\022\022\n\016GROUP_PERSONA" +
+      "L\020\000\022\r\n\tGROUP_ORG\020\001*6\n\017GroupVisibility\022\020\n" +
+      "\014GROUP_PUBLIC\020\000\022\021\n\rGROUP_PRIVATE\020\001*\037\n\013Gr" +
+      "oupStatus\022\020\n\014GROUP_ACTIVE\020\000*-\n\013MessageTy" +
+      "pe\022\016\n\nMSG_SIMPLE\020\000\022\016\n\nMSG_THREAD\020\001*\"\n\rMe" +
+      "ssageStatus\022\021\n\rMSG_PUBLISHED\020\000*X\n\021Messag" +
+      "eVisibility\022\016\n\nMSG_PUBLIC\020\000\022\022\n\016MSG_ORG_P" +
+      "UBLIC\020\001\022\016\n\nMSG_SHARED\020\002\022\017\n\013MSG_PRIVATE\020\003" +
+      "*\031\n\007DocType\022\016\n\nDOC_SIMPLE\020\000*\033\n\tDocStatus" +
+      "\022\016\n\nDOC_ACTIVE\020\000*T\n\rDocVisibility\022\016\n\nDOC" +
+      "_PUBLIC\020\000\022\022\n\016DOC_ORG_PUBLIC\020\001\022\016\n\nDOC_SHA" +
+      "RED\020\002\022\017\n\013DOC_PRIVATE\020\003B\022\n\020wiki.sliki.mod" +
+      "elb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17164,7 +17959,7 @@ public final class SlikiModel {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "MessageId", "MessageType", "Status", "CreatedDatetimeMs", "ModifiedDatetimeMs", "CreatedPersonaId", "CreateOrgId", "MessageBody", });
+        new java.lang.String[] { "MessageId", "MessageType", "Status", "Visibility", "CreatedDatetimeMs", "ModifiedDatetimeMs", "CreatedPersonaId", "CreateOrgId", "MessageBody", });
     internal_static_MessageRef_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_MessageRef_fieldAccessorTable = new
@@ -17182,7 +17977,7 @@ public final class SlikiModel {
     internal_static_Doc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Doc_descriptor,
-        new java.lang.String[] { "DocId", });
+        new java.lang.String[] { "DocId", "DocType", "Status", "Visibility", });
     internal_static_Auth_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_Auth_fieldAccessorTable = new

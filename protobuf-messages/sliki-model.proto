@@ -133,18 +133,26 @@ enum MessageType {
 }
 
 enum MessageStatus {
-  MSG_VISIBLE = 0;
+  MSG_PUBLISHED = 0;
+}
+
+enum MessageVisibility {
+  MSG_PUBLIC  = 0;
+  MSG_ORG_PUBLIC = 1;
+  MSG_SHARED = 2;
+  MSG_PRIVATE = 3;
 }
 
 message Message {
   MessageId message_id          = 1;
   MessageType message_type      = 2;
   MessageStatus status          = 3;
-  int64 created_datetime_ms     = 4;
-  int64 modified_datetime_ms    = 5;
-  PersonaId created_persona_id  = 6;
-  OrgId create_org_id           = 7;
-  string message_body           = 8;
+  MessageVisibility visibility  = 4;
+  int64 created_datetime_ms     = 5;
+  int64 modified_datetime_ms    = 6;
+  PersonaId created_persona_id  = 7;
+  OrgId create_org_id           = 8;
+  string message_body           = 9;
 }
 
 message MessageRef {
@@ -156,9 +164,26 @@ message DocId {
   bytes binary_uuid = 1;
 }
 
+enum DocType {
+  DOC_SIMPLE = 0;
+}
+
+enum DocStatus {
+  DOC_ACTIVE = 0;
+}
+
+enum DocVisibility {
+  DOC_PUBLIC = 0;
+  DOC_ORG_PUBLIC = 1;
+  DOC_SHARED = 2;
+  DOC_PRIVATE = 3;
+}
+
 message Doc {
-  DocId doc_id = 1;
-  
+  DocId doc_id              = 1;
+  DocType doc_type          = 2;
+  DocStatus status          = 3;
+  DocVisibility visibility  = 4;
 }
 
 

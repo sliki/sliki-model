@@ -7,12 +7,15 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.MessageStatus');
+goog.provide('proto.MessageVisibility');
 
 /**
  * @enum {number}
  */
-proto.MessageStatus = {
-  MSG_PUBLISHED: 0
+proto.MessageVisibility = {
+  MSG_PUBLIC: 0,
+  MSG_ORG_PUBLIC: 1,
+  MSG_SHARED: 2,
+  MSG_PRIVATE: 3
 };
 

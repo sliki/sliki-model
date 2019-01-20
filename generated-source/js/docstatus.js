@@ -7,12 +7,12 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.MessageStatus');
+goog.provide('proto.DocStatus');
 
 /**
  * @enum {number}
  */
-proto.MessageStatus = {
-  MSG_PUBLISHED: 0
+proto.DocStatus = {
+  DOC_ACTIVE: 0
 };
 
