@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sliki-model" basedir="." default="build" xmlns:ivy="antlib:org.apache.ivy.ant">
+  <!-- ===================================================================== -->
+  <!-- | BUILD PROPERTIES | -->
+  <!-- ===================================================================== -->
+
+  <!-- Define local properties -->
+  <property name="dir.proto.src" location="${basedir}/protobuf-messages" />
+  <property name="proto.file.name" value="sliki-model.proto" />
+  <property name="proto.file.path" location="${dir.proto.src}/${proto.file.name}" />
+
+  <property name="dir.generate.src" location="${basedir}/generated-source" />
+
+  <property name="dir.go.src" location="${dir.generate.src}/go" />
+  <property name="dir.js.src" location="${dir.generate.src}/js" />
+
+  <property name="dir.java.src" location="${dir.generate.src}/java" />
+  <property name="dir.java.build" location="${basedir}/build/java" />
+  <property name="dir.java.build.classes" location="${dir.java.build}/classes" />
+  <property name="dir.jar.dist" location="${dir.java.build}/dist" />
+  <property name="jar.name" value="sliki-model" />
+  <property name="target.jar" location="${dir.jar.dist}/${jar.name}.jar" />
+
+
+
+  <!-- ===================================================================== -->
+  <!-- | BUILD TARGETS | -->
+  <!-- ===================================================================== -->
+
+
+  <target name="resolve" description="retrieve dependencies with Ivy">
+    <ivy:resolve />
+    <ivy:cachepath pathid="compile.path" />
+  </target>
+
+  <target name="proto-gen">
+    <exec executable="protoc" failonerror="true">
+      <arg value="--java_out=${dir.java.src}" />
+      <arg value="--go_out=${dir.go.src}" />
+      <arg value="--js_out=${dir.js.src}" />
+      <arg value="--proto_path=${dir.proto.src}" />
+      <arg line="${proto.file.path}" />
+    </exec>
+  </target>
+
+  <target name="compile" depends="proto-gen,resolve" description="Compiles the Java source files">
+    <mkdir dir="${dir.java.build.classes}" />
+    <!-- Compile source files. -->
+    <javac target="1.8" source="1.8" listfiles="yes" srcdir="${dir.java.src}" destdir="${dir.java.build.classes}"
+      classpathref="compile.path" includeAntRuntime="no" debug="true" debuglevel="lines,vars,source">
+
+      <include name="**/*.java" />
+    </javac>
+    <!-- Copy any non-source files, these may include images, property files, etc. -->
+    <copy todir="${dir.java.build.classes}">
+      <fileset dir="${dir.java.src}">
+        <include name="**/*" />
+        <exclude name="**/*.java" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="build" depends="clean,jar" description="Alias for jar target" />
+
+
+  <target name="jar" depends="compile" description="Create standard jar">
+    <jar basedir="${dir.java.build.classes}" destfile="${target.jar}">
+    </jar>
+  </target>
+
+
+  <target name="clean" description="Cleans the build directory.">
+    <delete dir="${dir.java.build.classes}" />
+  </target>
+
+</project>

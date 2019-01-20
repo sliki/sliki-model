@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ivy-module version="2.0">
+	<info organisation="wiki.sliki" module="sliki-model" />
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+		<dependency org="com.google.protobuf" name="protobuf-java"
+			rev="3.6.1" />
+	</dependencies>
+</ivy-module>
