@@ -11,3 +11,44 @@ or maybe {{ messagesWhere({a='xxx',b='yyy'}) }}
 
 etc.
 
+
+Admin Service
+=============
+
+Create/manage org and/or user accounts, personas, groups
+
+
+Auth Service
+============
+
+Authenticate user/persona (login) and manage session state
+
+
+Message Service
+===============
+
+Post messages to queues
+
+Persist messages
+
+Route messages to listeners (persist in listener/context space)
+
+
+Document Service
+================
+
+Create/manage documents
+
+Map document ids (UUIDs) to REST spaces
+
+  - the sliki (my) philosophy is that heirarchies are at least somewhat evil (frequently arbitrary,
+    and often plain wrong except along the narrowest dimensions), so multiple paths to docs
+    may exist as suits the needs of users.
+    
+  - a canonical form might be something like //{{publisher-domain}}/docs-by-unique-id/{{uuid}}
+    
+    - 
+
+
+
+
